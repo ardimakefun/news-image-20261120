@@ -24,7 +24,7 @@ the same bands. Nothing is padded with unverified or non-20-Nov items.
 
 **Leads**
 
-1. **COP31 final day ends with no deal on fossil fuels** (Antalya) —
+1. **COP31 final day opens with no deal on fossil fuels** (Antalya) —
    draft cut to 80 paragraphs, the $120bn aid figure gone; Panama vows
    to block a text with no oil cap.
 2. **Cyclone Akvan hits India's coast; 370,000 evacuated** (Gopalpur,
@@ -35,7 +35,7 @@ the same bands. Nothing is padded with unverified or non-20-Nov items.
 
 **Grid (12):** Cyclone Xavier (strongest November storm on record east
 of the date line, Cat 4, 165 km/h) · Russell fastest in rain-soaked
-Las Vegas F1 practice (FP2 1:47.272; FP1 washed out Thursday) · GTA
+Las Vegas F1 practice (FP2 1:47.272, Thursday; FP1 washed out) · GTA
 VI's first day estimated at $2.36bn (Sensor Tower estimate, updated
 Thursday evening — labelled as an estimate) · Army delays Iowa
 lead-azide blast to Monday (Thursday-night delay; 9,700 lbs unstable)
@@ -49,10 +49,18 @@ Thursday; CVE-2026-123890, CVSS 9.8) · Samsung names new mobile chief
 50,000 — the Thursday close Asia woke to, used only as context).
 
 **Briefs (5):** Dollar strong (DXY 103.85); US 10-year yield 5.04% ·
-SoftBank −15% leads Tokyo's tech rout · Taiwan's worst week since 1991
-(−16%) · Anthropic fast-tracked into MSCI (1 Dec) and FTSE (21 Dec),
+SoftBank −15%, heaviest weight in the Nikkei's fall · Taiwan −16%
+for the week; Thursday's short-selling curbs failed to stop the slide
+· Anthropic fast-tracked into MSCI (1 Dec) and FTSE (21 Dec),
 announced Thursday · Reporters' phones seized on Air Force One
 leaving China, Thursday evening.
+
+Below the briefs, a labelled fixtures line — "TONIGHT — FOOTBALL:
+Bayern v Köln 19:30 UTC · Athletic v Espanyol 20:00 UTC · Troyes v
+Le Havre 19:45 UTC · Al Ahli v Al Nassr 17:30 UTC" — lists
+Friday-night football fixtures (not results). It is NOT a story: it
+is not counted in the 20-story total, adds nothing to the region
+strip, and has no map pin.
 
 ## Story-count arithmetic
 
@@ -119,6 +127,54 @@ Reuters, Asia Today, Formula 1, Fiji Met (RSMC Nadi), NordFX, KuCoin,
 AP, Al Jazeera, Samsung Newsroom, BleepingComputer, IMD — 20 Nov 2026.
 Full source list per story: `../work/research-news20.md`.
 
+## Fix round — audit round 1 (20 Nov, ~15:00 WIB)
+
+Independent audit verdict was NO-GO (1 BLOCKER, 5 MAJOR, 4 LOW). All
+ten defects were fixed in `render_news20.py` and re-rendered, except
+D10 which is DEFERRED (see below):
+
+- **D1 (BLOCKER):** COP31 headline and masthead subline no longer
+  assert an outcome — "final day **opens** with no deal", not "ends
+  with". The summit entered its final day with no agreement; the final
+  text was due by midnight Antalya Friday.
+- **D2:** masthead now reads "20 STORIES · FIVE REGIONS" (the strip
+  has MIDDLE EAST 0 and EUROPE 0, so "EVERY CONTINENT" was false).
+- **D3:** Xavier is now "strongest Nov storm east of the date line"
+  (headline) / "Nov record east of dateline" (deck) — the qualifier
+  from the research is on the page.
+- **D4:** F1 deck now dates FP2: "FP2 1:47.272, Thursday; FP1 washed
+  out." (The audit's exact wording, "FP2 1:47.272 (Thursday
+  evening); FP1 washed out Thursday.", is 308px in the 229px grid
+  cell and cannot fit on one line; the Thursday label on FP2 — the
+  point of the defect — is kept in full.)
+- **D5:** briefs band filled — brief type enlarged 11px → 12px and
+  the labelled fixtures line added below the briefs (see above); the
+  band now runs to just above the DATE CHECK box.
+- **D6:** map redrawn in native 560×175 coordinates with a light
+  graticule; Japan drawn as an island chain (Hokkaido, Honshu,
+  Kyushu), Taiwan as its own island, Europe as a separate polygon
+  with a sea gap east of it. Pins sit on the land they name: Tokyo
+  on Honshu, Taipei on Taiwan, New York on North America's east
+  coast, Shenzhen on China's south coast. Pin numbers still match
+  brief numbers; the renderer still asserts no two pins touch.
+- **D7:** briefs header is now "ALSO REPORTED ON FRIDAY 20 NOVEMBER
+  2026" (briefs 4–5 happened Thursday; their own text says so).
+- **D8:** the unexplained black bar after "DRAFT" in the COP31
+  illustration is now a tight chip around the word DRAFT, with
+  legible text beside it: "144 to 80 paras."
+- **D9:** Bitcoin deck now dates the outflow: "ETFs shed $306m Thu."
+  (The full "Thursday" spelling is 232px in the 229px cell; "Thu."
+  is the same date.)
+- **D10 — DEFERRED TO TOMORROW'S REFRESH:** briefs 2–3 (SoftBank
+  −15%, Taiwan −16%) still restate figures in lead 3's deck, because
+  there are NO other verified brief candidates tonight — all 20
+  verified stories are already on the page, and inventing
+  replacements is forbidden. The two briefs were reworded to add
+  distinct detail from the research instead (SoftBank as the heaviest
+  weight in the Nikkei's fall; Taiwan's short-selling curbs failing
+  to stop the slide). At refresh, replace these two brief slots with
+  genuinely new verified stories when the ~24 new briefs arrive.
+
 ## Handover — refresh tomorrow morning (Sat 21 Nov)
 
 Re-check before rebuilding (see "STILL DEVELOPING / RE-CHECK
@@ -142,6 +198,8 @@ boat search toll. **12.** Iowa detonation — Monday 23 Nov plan holds?
 **15.** Any late-breaking 20 Nov story — re-run a full news sweep.
 
 Refresh plan: add ~24 verified stories as briefs (the briefs band goes
-back to two columns), update the masthead count and region strip to
-the new total, re-check the numbers strip against the new stories,
-re-audit, and submit before entries close Sun 22 Nov 07:00 WIB.
+back to two columns) — replace briefs 2–3 first (SoftBank, Taiwan;
+D10 was deferred because no replacement existed tonight), update the
+masthead count and region strip to the new total, re-check the numbers
+strip against the new stories, re-audit, and submit before entries
+close Sun 22 Nov 07:00 WIB.

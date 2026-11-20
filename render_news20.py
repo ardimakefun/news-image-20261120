@@ -173,7 +173,7 @@ REGIONS = [
 # Panel art is drawn by draw_lead_* below.
 LEADS = [
     ("cop31", "ANTALYA · CLIMATE — FINAL DAY", ACCENT,
-     "COP31 final day ends with no deal on fossil fuels",
+     "COP31 final day opens with no deal on fossil fuels",
      "Draft cut to 80 paragraphs, $120bn aid figure gone; Panama vows "
      "to block a text with no oil cap."),
     ("akvan", "ODISHA · WEATHER", SKY,
@@ -190,11 +190,11 @@ LEADS = [
 # The band mark is a short white word/number drawn at the band's right.
 GRID = [
     (SKY, "cyclone", "165", "SOUTH PACIFIC · WEATHER",
-     "Cyclone Xavier: strongest November storm on record",
-     "Cat 4, 165 km/h; record Nov storm."),
+     "Cyclone Xavier: strongest Nov storm east of the date line",
+     "Cat 4, 165 km/h; Nov record east of dateline."),
     (STEEL, "flag", "1:47", "LAS VEGAS · FORMULA 1",
      "Russell fastest in rain-soaked Las Vegas",
-     "FP2 1:47.272; FP1 washed out Thursday."),
+     "FP2 1:47.272, Thursday; FP1 washed out."),
     (WINE, "gamepad", "$2.36bn", "WORLDWIDE · GAMES — ESTIMATE",
      "GTA VI's first day estimated at $2.36bn",
      "Estimate; updated Thursday evening."),
@@ -215,7 +215,7 @@ GRID = [
      "Petrol $3.24/litre; 20-litre daily limit."),
     (OCHRE, "bitcoin", "12", "MARKETS · CRYPTO",
      "Bitcoin holds near $62,000 in 'extreme fear'",
-     "Fear & Greed 12; ETFs shed $306m."),
+     "Fear & Greed 12; ETFs shed $306m Thu."),
     (OCHRE, "coin", "$3,553", "MARKETS · GOLD",
      "Gold slides toward 14-month lows",
      "~$3,553 an ounce as the dollar rallies."),
@@ -232,8 +232,9 @@ GRID = [
 # PINS). Brief 1 is GLOBAL and has no single place, so it has no pin.
 BRIEFS = [
     ("GLOBAL", "Dollar strong (DXY 103.85); US 10-year yield 5.04%"),
-    ("TOKYO", "SoftBank -15% leads Tokyo's tech rout"),
-    ("TAIPEI", "Taiwan's worst week since 1991 (-16%)"),
+    ("TOKYO", "SoftBank -15%, heaviest weight in the Nikkei's fall"),
+    ("TAIPEI", "Taiwan -16% for the week; Thursday's short-selling "
+     "curbs failed to stop the slide"),
     ("NEW YORK", "Anthropic fast-tracked into MSCI (1 Dec) and FTSE "
      "(21 Dec), announced Thursday"),
     ("SHENZHEN", "Reporters' phones seized on Air Force One leaving "
@@ -241,16 +242,28 @@ BRIEFS = [
 ]
 
 # Map pins: (brief number, map-local x, map-local y). The map box is
-# 560x175; positions are approximate (see the legend under the map).
-# One pin per distinct place — the first brief for that place. Brief 1
-# (GLOBAL) has no pin. Pins are spaced so no two 12px pin circles touch
+# 560x175 in native coordinates (no scaling); positions are approximate
+# (see the legend under the map). One pin per distinct place — the first
+# brief for that place. Brief 1 (GLOBAL) has no pin. Pins sit on the
+# land they name: 2 Tokyo on Honshu, 3 Taipei on Taiwan island,
+# 4 New York on North America's east coast, 5 Shenzhen on China's
+# south coast. Pins are spaced so no two 12px pin circles touch
 # (the renderer asserts this).
 PINS = [
-    (2, 519, 44),
-    (3, 502, 62),
-    (4, 153, 40),
-    (5, 462, 58),
+    (2, 482, 46),
+    (3, 459, 66),
+    (4, 150, 46),
+    (5, 438, 70),
 ]
+
+# Friday-night football fixtures, listed under the briefs as a
+# clearly-labelled fixtures line. These are FIXTURES (not results —
+# the matches had not been played at build time) and are NOT stories:
+# they are NOT counted in the 20-story total and add nothing to the
+# region strip. From ../work/research-news20.md (brief candidates).
+FIXTURES = ("TONIGHT — FOOTBALL: Bayern v Köln 19:30 UTC · Athletic v "
+            "Espanyol 20:00 UTC · Troyes v Le Havre 19:45 UTC · Al Ahli "
+            "v Al Nassr 17:30 UTC")
 
 # The day in numbers: (big figure, label) — all from stories on this page.
 NUMBERS = [
@@ -410,9 +423,14 @@ def draw_lead_cop31(d, x, y, w, h):
     # draft document, left
     d.rectangle([x + 12, y + 10, x + 190, y + h - 26], fill=WHITE)
     d.rectangle([x + 12, y + 10, x + 190, y + h - 26], outline=INK, width=2)
-    d.rectangle([x + 22, y + 18, x + 110, y + 30], fill=INK)
-    d.text((x + 27, y + 20), "DRAFT", font=F_BOLD(9), fill=WHITE)
-    d.text((x + 118, y + 20), "80 paras.", font=F_BOLD(9), fill=INK)
+    # "DRAFT" as a tight black chip, then the paragraph cut as legible
+    # text beside it (a wide empty black bar read as a redaction).
+    draft = "DRAFT"
+    dw = text_w(d, draft, F_BOLD(9))
+    d.rectangle([x + 22, y + 18, x + 32 + dw, y + 30], fill=INK)
+    d.text((x + 27, y + 20), draft, font=F_BOLD(9), fill=WHITE)
+    d.text((x + 38 + dw, y + 20), "144 to 80 paras.", font=F_BOLD(9),
+           fill=INK)
     for i, yy in enumerate((36, 46)):
         d.line([x + 22, y + yy, x + 180, y + yy], fill=(180, 175, 160),
                width=2)
@@ -495,57 +513,76 @@ LEAD_DRAW = {"cop31": draw_lead_cop31, "akvan": draw_lead_akvan,
 
 
 # ------------------------------------------------------------------- map
-# Schematic world map drawn in code from polygons — flat tan land on
-# pale-blue ocean, no external assets. Base polygons are written in a
-# 330-wide coordinate space (the proven v7 map) and scaled horizontally
-# to the wider 560px box; the vertical space is unchanged at 175px.
+# Schematic world map drawn in code from polygons in the map box's own
+# 560x175 native coordinates — flat tan land on pale-blue ocean, no
+# external assets, with a light graticule so it reads as a world map.
+# Europe is a separate polygon with a sea gap east of it (the Urals /
+# Caspian gap), so it does not merge into Asia; Japan is drawn as an
+# island chain (Hokkaido, Honshu, Kyushu) and Taiwan as its own small
+# island, so the Tokyo and Taipei pins sit on the land they name.
 
 MAP_W, MAP_H = 560, 175
-MAP_SX = MAP_W / 330.0
 
 CONTINENTS = [
     # North America
-    [(14, 30), (40, 14), (70, 10), (100, 16), (118, 26), (108, 40),
-     (98, 44), (92, 58), (80, 66), (66, 86), (56, 78), (48, 64),
-     (30, 56), (16, 44)],
+    [(12, 28), (30, 12), (70, 6), (120, 4), (155, 10), (188, 16),
+     (196, 26), (180, 38), (172, 52), (168, 68), (158, 80), (135, 82),
+     (118, 92), (100, 96), (92, 84), (70, 66), (45, 48), (22, 36)],
     # Greenland
-    [(104, 6), (122, 4), (128, 12), (114, 16), (104, 12)],
+    [(168, 2), (196, 0), (202, 10), (182, 14)],
     # South America
-    [(76, 96), (102, 90), (116, 104), (110, 128), (98, 156),
-     (88, 142), (78, 118)],
-    # Europe
-    [(162, 26), (180, 14), (200, 18), (206, 30), (196, 42),
-     (180, 48), (168, 40)],
+    [(150, 80), (175, 72), (205, 80), (215, 95), (205, 115), (195, 140),
+     (185, 168), (172, 155), (158, 130), (145, 105)],
+    # Europe — separate from Asia, sea gap to its east
+    [(252, 32), (262, 14), (284, 8), (308, 10), (318, 20), (312, 32),
+     (302, 44), (290, 50), (272, 48), (258, 42)],
     # UK
-    [(158, 24), (164, 20), (166, 28), (160, 30)],
+    [(248, 26), (254, 22), (256, 30), (250, 32)],
     # Africa
-    [(166, 60), (192, 54), (212, 64), (210, 88), (200, 118),
-     (188, 108), (176, 84)],
-    # Asia
-    [(212, 18), (258, 8), (306, 16), (322, 32), (300, 50),
-     (282, 64), (264, 56), (246, 44), (224, 34)],
+    [(245, 62), (280, 55), (320, 58), (342, 70), (335, 95), (320, 120),
+     (300, 145), (282, 138), (262, 115), (245, 90), (238, 75)],
+    # Asia — west edge at x=338, clear of Europe's east edge (x=318)
+    [(338, 14), (385, 6), (435, 4), (485, 8), (525, 14), (548, 26),
+     (538, 42), (522, 50), (508, 56), (495, 60), (480, 64), (468, 68),
+     (455, 72), (442, 78), (430, 86), (418, 80), (405, 72), (392, 66),
+     (380, 60), (365, 52), (350, 44), (340, 30)],
+    # Arabia
+    [(342, 56), (360, 58), (358, 74), (344, 72)],
     # India
-    [(250, 58), (262, 60), (258, 88), (248, 84)],
-    # Japan
-    [(308, 28), (314, 26), (316, 40), (310, 44)],
+    [(378, 60), (396, 62), (398, 78), (390, 94), (380, 90), (372, 72)],
+    # Japan — island chain: Hokkaido, Honshu, Kyushu
+    [(488, 20), (498, 16), (500, 24), (490, 28)],
+    [(472, 34), (488, 28), (494, 40), (486, 54), (474, 50)],
+    [(468, 52), (476, 50), (478, 58), (470, 60)],
+    # Taiwan — its own small island off China's south-east coast,
+    # drawn larger than scale so it stays visible under its pin
+    [(451, 60), (463, 58), (467, 76), (454, 80)],
     # Australia
-    [(272, 128), (300, 124), (310, 136), (296, 150), (276, 144)],
+    [(440, 128), (478, 122), (500, 130), (492, 148), (462, 150),
+     (442, 140)],
+    # Indonesia dots
+    [(428, 106), (434, 104), (436, 110), (430, 112)],
+    [(444, 110), (450, 108), (452, 114), (446, 116)],
+    [(460, 106), (466, 104), (468, 110), (462, 112)],
 ]
 
 
 def draw_map(d, x, y, w, h):
-    """Schematic world map: flat tan continents on pale ocean, numbered
-    red pins tied to the briefs list. Positions approximate."""
+    """Schematic world map: flat tan continents on pale ocean with a
+    light graticule, numbered red pins tied to the briefs list.
+    Positions approximate."""
     d.rectangle([x, y, x + w, y + h], fill=(214, 231, 240))
+    # graticule: light lat/long lines so the box reads as a world map
+    grat = (190, 205, 215)
+    for gx in range(70, w, 70):
+        d.line([x + gx, y, x + gx, y + h], fill=grat, width=1)
+    for gy in range(35, h, 35):
+        d.line([x, y + gy, x + w, y + gy], fill=grat, width=1)
     land = (232, 220, 184)
     edge = (200, 186, 140)
     for poly in CONTINENTS:
-        pts = [(x + px * MAP_SX, y + py) for px, py in poly]
+        pts = [(x + px, y + py) for px, py in poly]
         d.polygon(pts, fill=land, outline=edge)
-    # SE Asia islands: three small dots
-    for ix, iy in ((282, 78), (292, 84), (276, 88)):
-        d.ellipse([x + ix * MAP_SX - 5, y + iy - 3, x + ix * MAP_SX + 5,
-                   y + iy + 3], fill=land, outline=edge)
     # numbered pins
     for num, px, py in PINS:
         d.ellipse([x + px - 6, y + py - 6, x + px + 6, y + py + 6],
@@ -577,7 +614,7 @@ def main():
     # ---- masthead ------------------------------------------------------
     y = 8
     tracked(d, M, y, "THE WORLD IN ONE DAY", F_BOLD(13), ACCENT, tracking=3)
-    right = "20 STORIES · EVERY CONTINENT"
+    right = "20 STORIES · FIVE REGIONS"
     tracked(d, W - M - tracked_w(d, right, F_BOLD(13), 3), y, right,
             F_BOLD(13), GREY, tracking=3)
     y = 24
@@ -585,7 +622,7 @@ def main():
     assert text_w(d, title, F_SERIF(54)) <= CW, "masthead title too wide"
     d.text((M, y), title, font=F_SERIF(54), fill=INK)
     y = 86
-    sub = ("COP31's final day ends without a deal · Cyclone Akvan hits "
+    sub = ("COP31's final day opens without a deal · Cyclone Akvan hits "
            "India's coast · Asian markets plunge")
     assert text_w(d, sub, F_SERIF_IT(16)) <= CW, "masthead subline too wide"
     d.text((M, y), sub, font=F_SERIF_IT(16), fill=ACCENT)
@@ -682,15 +719,17 @@ def main():
 
     # ---- map + numbered briefs -----------------------------------------
     # Only 5 briefs tonight, so the map gets the room: a 560px-wide map
-    # at left, the 5 briefs in ONE column at right (up to 2 lines each,
-    # 34px per brief). Tomorrow's refresh adds ~24 more briefs into the
-    # same band — the column then goes back to two columns.
+    # at left, the 5 briefs in ONE column at right in larger 12px type,
+    # then a clearly-labelled fixtures line (fixtures, not a story —
+    # not counted in the 20) to fill the band to the DATE CHECK box.
+    # Tomorrow's refresh adds ~24 more briefs into the same band — the
+    # column then goes back to two columns.
     y = 735
     tracked(d, M, y, "WHERE IT HAPPENED", F_BOLD(12), ACCENT, tracking=2)
     briefs_x = M + MAP_W + 16
     briefs_w = W - M - briefs_x
-    tracked(d, briefs_x, y, "ALSO ON FRIDAY 20 NOVEMBER 2026",
-            F_BOLD(12), ACCENT, tracking=2)
+    tracked(d, briefs_x, y, "ALSO REPORTED ON FRIDAY 20 NOVEMBER 2026",
+            F_BOLD(11), ACCENT, tracking=2)
     map_y = 751
     draw_map(d, M, map_y, MAP_W, MAP_H)
     d.rectangle([M, map_y, M + MAP_W, map_y + MAP_H], outline=INK, width=2)
@@ -699,24 +738,34 @@ def main():
     assert text_w(d, legend, F_REG(9)) <= MAP_W, "map legend too wide"
     d.text((M, map_y + MAP_H + 3), legend, font=F_REG(9), fill=GREY)
     assert len(BRIEFS) == 5, f"briefs must be 5, have {len(BRIEFS)}"
+    by = map_y
     for idx, (place, head) in enumerate(BRIEFS):
-        by = map_y + idx * 34
         num = str(idx + 1)
-        nw = text_w(d, num, F_BOLD(11))
-        d.text((briefs_x, by), num, font=F_BOLD(11), fill=ACCENT)
+        nw = text_w(d, num, F_BOLD(12))
+        d.text((briefs_x, by), num, font=F_BOLD(12), fill=ACCENT)
         tx = briefs_x + nw + 5
         tw = briefs_w - nw - 5
         # Place in bold on the first line, headline wraps to 2 lines.
         first = f"{place} — "
-        fw = text_w(d, first, F_BOLD(11))
+        fw = text_w(d, first, F_BOLD(12))
         assert fw < tw, f"brief {idx + 1} place too wide"
-        lines = wrap(d, head, F_REG(11), tw - fw)
+        lines = wrap(d, head, F_REG(12), tw - fw)
         assert len(lines) <= 2, f"brief {idx + 1} too long: {head!r}"
-        d.text((tx, by), first, font=F_BOLD(11), fill=INK)
-        d.text((tx + fw, by), lines[0], font=F_REG(11), fill=BODY)
+        d.text((tx, by), first, font=F_BOLD(12), fill=INK)
+        d.text((tx + fw, by), lines[0], font=F_REG(12), fill=BODY)
         if len(lines) > 1:
-            d.text((tx, by + 14), lines[1], font=F_REG(11), fill=BODY)
-    assert map_y + 4 * 34 + 28 <= 938, "briefs overflow"
+            d.text((tx, by + 15), lines[1], font=F_REG(12), fill=BODY)
+        by += len(lines) * 15 + 6
+    # Fixtures line: labelled as fixtures, NOT a story — the 20-story
+    # total and the region strip do not count it.
+    fy = by + 2
+    d.line([briefs_x, fy, W - M, fy], fill=RULE, width=1)
+    flines = wrap_strict(d, FIXTURES, F_REG(11), briefs_w, 2, "fixtures")
+    fyy = fy + 6
+    for line in flines:
+        d.text((briefs_x, fyy), line, font=F_REG(11), fill=BODY)
+        fyy += 13
+    assert fyy <= 942, f"briefs/fixtures overflow: {fyy}"
 
     # ---- date check ----------------------------------------------------
     y = 944

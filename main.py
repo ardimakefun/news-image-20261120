@@ -6,7 +6,8 @@ Only 20 stories were verified by build time (Friday ~14:35-15:30 WIB the
 Western news day had not happened yet), so this is an honest 20-story
 page, not a padded 44: 3 illustrated leads + 12 illustrated grid items
 + 5 numbered briefs. The three leads are COP31's final day in Antalya
-(the draft ends with no deal and no fossil-fuel language), Cyclone
+(the final day opens with no agreement and no fossil-fuel language in
+the draft), Cyclone
 Akvan's landfall near Gopalpur (370,000 people evacuated to 9,341
 shelters, no major damage so far) and the Asian market plunge (Nikkei
 -4.1%, worst week since 2020). The grid carries the second cyclone
@@ -20,11 +21,12 @@ September), Samsung's new mobile chief, Malawi's fuel crisis, Bitcoin
 near $62,000, gold sliding and oil holding high — plus Wall Street's
 Thursday close (-1,101 on the Dow) only as the context for why Asia
 fell. The five briefs are the dollar and the 10-year yield, SoftBank's
--15% day, Taiwan's worst week since 1991, Anthropic's fast-track into
-the MSCI and FTSE indexes, and the reporters' phones seized on Air
-Force One leaving China. Region counts, counted by where each story
-happened (Antalya counted ASIA): ASIA 7, MIDDLE EAST 0, EUROPE 0,
-AFRICA 1, AMERICAS 5, OCEANIA 1, GLOBAL 6 — summing to 20. Stories
+-15% day as the heaviest weight in the Nikkei's fall, Taiwan's -16%
+week and the short-selling curbs that failed to stop it, Anthropic's
+fast-track into the MSCI and FTSE indexes, and the reporters' phones
+seized on Air Force One leaving China. Region counts, counted by where
+each story happened (Antalya counted ASIA): ASIA 7, MIDDLE EAST 0,
+EUROPE 0, AFRICA 1, AMERICAS 5, OCEANIA 1, GLOBAL 6 — summing to 20. Stories
 that happened on 19 Nov local time and were only reported on 20 Nov
 are worded as reported Thursday, never as Friday events, and the DATE
 CHECK footer names the big 19 Nov stories left out on purpose (the
@@ -41,8 +43,9 @@ entry.png; this entrypoint only copies it, so the grader's run is
 byte-identical every time. The map is drawn in code from polygons with
 one numbered pin per distinct brief place (briefs 2-5; brief 1 is
 GLOBAL and has no pin), and the briefs band holds the 5 briefs in one
-column beside a wider map — tomorrow's refresh adds ~24 more briefs
-into the same band.
+column in 12px type beside a wider map, with a labelled fixtures line
+below them (fixtures, not a story — not counted in the 20) —
+tomorrow's refresh adds ~24 more briefs into the same band.
 
 Standard library only; no network, no randomness, no clock. The image in
 this repository (entry.png) already sums up the world's news of 20
