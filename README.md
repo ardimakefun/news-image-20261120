@@ -1,66 +1,85 @@
-# The World in One Day — 20 stories, Friday 20 November 2026
+# The World in One Day — 42 stories, Friday 20 November 2026
 
 [![make.fun](https://img.shields.io/badge/make.fun-bounty-blue)](https://make.fun/bounty/news-image-20261120)
 [![competition](https://img.shields.io/badge/competition-news--image--20261120-red)](https://make.fun/bounty/news-image-20261120)
-[![stories](https://img.shields.io/badge/stories-20-green)](https://make.fun/bounty/news-image-20261120)
+[![stories](https://img.shields.io/badge/stories-42-green)](https://make.fun/bounty/news-image-20261120)
 
 A one-page newspaper front page summing up Friday 20 November 2026 in
-a single 1024×1024 image: **20 stories** — 3 illustrated leads, 12
-illustrated grid items, 5 numbered briefs tied to a world map with
+a single 1024×1024 image: **42 stories** — 3 illustrated leads, 12
+illustrated grid items, 27 numbered briefs tied to a world map with
 numbered pins, a region-counted strip, a numbers strip, and a DATE
 CHECK footer naming the big stories left out because they are other
 days' news.
 
-## Why only 20 stories
+## v2 — the afternoon refresh (20 Nov, ~15:05–16:00 WIB research)
 
-The page was built on Friday afternoon WIB, before the Western news day
-had happened. Only 20 stories were verified by then (see
-`../work/research-news20.md`); the rest of the day — the COP31 final
-text, the US Friday market close, Friday-night sport, F1 qualifying —
-lands in tomorrow morning's refresh, which adds ~24 more briefs into
-the same bands. Nothing is padded with unverified or non-20-Nov items.
+v1 (20 stories) was built Friday afternoon WIB, before the Western
+news day had happened. The afternoon refresh
+(`../work/research-news20-addendum.md`) verified 22 more stories
+(N1–N22: 4 Bucket A, 18 Bucket B), so v2 is an honest 42-story page:
+20 + 22 = 42, inside the SPEC's 40–45 range — nothing is padded with
+unverified or non-20-Nov items.
 
 ## The stories
 
 **Leads**
 
-1. **COP31 final day opens with no deal on fossil fuels** (Antalya) —
-   draft cut to 80 paragraphs, the $120bn aid figure gone; Panama vows
-   to block a text with no oil cap.
+1. **COP31's final day ends with no deal yet** (Antalya) — no final
+   text by Friday; talks head into overtime. Draft cut to 80
+   paragraphs, the $120bn aid figure gone; Panama vows to block a
+   text with no oil cap. (v1's "final day opens with no deal" was
+   true Friday morning only; as of 08:05 UTC there was still no final
+   text — no outcome is invented.)
 2. **Cyclone Akvan hits India's coast; 370,000 evacuated** (Gopalpur,
-   Odisha) — landfall 07:30–08:30 IST at 70–80 km/h; no major damage
-   so far; 9,341 shelters.
+   Odisha) — landfall 07:30–08:30 IST at 70–80 km/h; no deaths, no
+   major damage so far; 39 trains cancelled.
 3. **Asian markets plunge in worst week since 2020** — Nikkei −4.1%,
    KOSPI −4.4%, Taiex −5%; Taiwan's week −16%, worst since 1991.
 
-**Grid (12):** Cyclone Xavier (strongest November storm on record east
-of the date line, Cat 4, 165 km/h) · Russell fastest in rain-soaked
-Las Vegas F1 practice (FP2 1:47.272, Thursday; FP1 washed out) · GTA
-VI's first day estimated at $2.36bn (Sensor Tower estimate, updated
-Thursday evening — labelled as an estimate) · Army delays Iowa
-lead-azide blast to Monday (Thursday-night delay; 9,700 lbs unstable)
-· Trump: no Iran decision until after New Year (Axios interview,
-Thursday) · VMware zero-day was exploited since September (patched
-Thursday; CVE-2026-123890, CVSS 9.8) · Samsung names new mobile chief
-· Malawi fuel crisis turns violent · Bitcoin holds near $62,000 in
-"extreme fear" (Fear & Greed 12) · Gold slides toward 14-month lows
-(~$3,553/oz) · Oil holds high with Hormuz risk high (Brent ~$92.31)
-· Thursday's Wall Street sell-off in numbers (Dow −1,101, below
-50,000 — the Thursday close Asia woke to, used only as context).
+**Grid (12):** Russia's overnight barrage hits Kyiv — 3 killed, 3
+bridges damaged (largest bridge attack of the war) · Youth take to
+the streets across Europe (cost-of-living protests in 7 countries;
+25+ countries in the youth strike) · Cyclone Xavier weakens to Cat 2,
+167 km/h (Pukapuka storm alert; 300+ sheltered) · Russell fastest in
+rain-soaked Las Vegas F1 practice (FP2 1:47.272 Thu; FP1 washed out
+Thu) · GTA VI's first day estimated at $2.36bn (Sensor Tower
+estimate, updated Thursday evening — labelled as an estimate;
+Take-Two has published nothing official) · Army delays Iowa
+lead-azide blast to Monday (governor urged the delay; environmental
+groups sued; 9,700 lbs) · Trump: no Iran decision until after New
+Year (Axios interview, Thursday) · VMware zero-day was exploited
+since September (patched Thursday; CVE-2026-123890, CVSS 9.8) ·
+Samsung names new mobile chief · Malawi fuel crisis turns violent ·
+Bitcoin slides to ~$61,700 in "extreme fear" (Fear & Greed 12; Friday
+morning snapshot) · Gold slides toward 14-month lows (~$3,544/oz,
+Friday morning snapshot).
 
-**Briefs (5):** Dollar strong (DXY 103.85); US 10-year yield 5.04% ·
-SoftBank −15%, heaviest weight in the Nikkei's fall · Taiwan −16%
-for the week; Thursday's short-selling curbs failed to stop the slide
-· Anthropic fast-tracked into MSCI (1 Dec) and FTSE (21 Dec),
-announced Thursday · Reporters' phones seized on Air Force One
-leaving China, Thursday evening.
+**Briefs (27):** 1. Dollar strong (DXY 103.85); US 10-year yield
+5.04% · 2. Dow −1,101, below 50,000 on Thursday · 3. Brent ~$92.31 a
+barrel; WTI ~$84 · 4. Japan core CPI 2.2%, above target again ·
+5. ~2,700 China-linked accounts flagged to Meta (Taiwan) · 6. Strikes
+damage Austrian, Dutch embassies in Kyiv (Thu) · 7. Neptune missiles
+hit Kerch Bridge railway (Thu) · 8. Ukrainian drone attack injures 11
+in Kursk (Thu) · 9. Haiti forces retake gang corridor; 34 killed
+(Thu) · 10. Lecturer elected speaker, acting president (Serbia) ·
+11. Top court overturns ex-PM Han's sentence (Thu) · 12. EU confirms
+AI-assisted cyberattack (Thu) · 13. Jailed mayor barred from 2028
+race, Istanbul (Thu) · 14. First US deep-sea leases sell for $6m
+(American Samoa, Thu) · 15. France to police YouTubers' coverage
+(Thu) · 16. Europe ready to negotiate with Russia (Thu) · 17.
+Hungary drops Ukraine veto (18 Nov) · 18. Spain debate: both claim
+victory; polls split · 19. Thursday strike drew 55,000; unions
+continue (Colombia) · 20. Senegal boat toll rises to four bodies
+(Thu) · 21. 98 caught cheating on college exam, Seoul (Thu) ·
+22. Four guilty in landmark consent case, Winchester (Thu) ·
+23. Rakuten breach hits up to 15.72m accounts (Thu) · 24. SoftBank
+−15%, heaviest weight in Nikkei fall · 25. Taiwan −16% for the week;
+curbs failed · 26. Anthropic fast-tracked into MSCI, FTSE (Thu) ·
+27. Phones seized on Air Force One, Shenzhen (Thu eve).
 
-Below the briefs, a labelled fixtures line — "TONIGHT — FOOTBALL:
-Bayern v Köln 19:30 UTC · Athletic v Espanyol 20:00 UTC · Troyes v
-Le Havre 19:45 UTC · Al Ahli v Al Nassr 17:30 UTC" — lists
-Friday-night football fixtures (not results). It is NOT a story: it
-is not counted in the 20-story total, adds nothing to the region
-strip, and has no map pin.
+The Friday-night fixtures line from v1 is gone — the matches had not
+been played at build time, and the band is full of real stories now;
+results come in tomorrow morning's refresh.
 
 ## Story-count arithmetic
 
@@ -68,44 +87,66 @@ strip, and has no map pin.
 |---|---|
 | Leads | 3 |
 | Grid | 12 |
-| Briefs | 5 |
-| **Total** | **20** |
+| Briefs | 27 |
+| **Total** | **42** |
 
 Region strip — counted by where each story happened (Antalya counted
 ASIA, as in Asia Minor):
 
 | Region | Stories | Count |
 |---|---|---|
-| ASIA | COP31, Akvan, Asian markets, Samsung, SoftBank, Taiwan, Air Force One phones | 7 |
-| MIDDLE EAST | — | 0 |
-| EUROPE | — | 0 |
-| AFRICA | Malawi fuel crisis | 1 |
-| AMERICAS | F1 Las Vegas, Iowa blast, Trump/Iran, Wall Street close, Anthropic indexes | 5 |
-| OCEANIA | Cyclone Xavier | 1 |
-| GLOBAL | GTA VI estimate, VMware zero-day, Bitcoin, gold, oil, dollar/yield | 6 |
-| **Total** | | **20** |
+| ASIA | COP31, Akvan, Asian markets, Samsung, Japan CPI, Taiwan accounts, Han, CSAT, Rakuten, SoftBank, Taiwan week, Air Force One phones | 12 |
+| MIDDLE EAST | İmamoğlu (Istanbul) | 1 |
+| EUROPE | Kyiv barrage, youth action, embassy strikes, Kerch Bridge, Kursk, Serbia speaker, EU cyberattack, Arcom, Berlin summit, Hungary veto, Spain debate, Young verdict | 12 |
+| AFRICA | Malawi fuel crisis, Senegal boat | 2 |
+| AMERICAS | F1 Las Vegas, Iowa blast, Trump/Iran, Wall Street close, Haiti, Colombia strike, Anthropic indexes | 7 |
+| OCEANIA | Cyclone Xavier, deep-sea leases | 2 |
+| GLOBAL | GTA VI estimate, VMware zero-day, Bitcoin, gold, dollar/yield, oil | 6 |
+| **Total** | | **42** |
 
-7 + 0 + 0 + 1 + 5 + 1 + 6 = **20** ✓ — masthead, region strip and
-footer all agree. Map pins: one per distinct brief place — brief 2
-(Tokyo), 3 (Taipei), 4 (New York), 5 (Shenzhen); brief 1 is GLOBAL and
-has no pin. The renderer asserts the pin set and that no two pin
-circles touch.
+12 + 1 + 12 + 2 + 7 + 2 + 6 = **42** ✓ — masthead ("42 STORIES ·
+SIX REGIONS"), region strip and footer all agree. Every strip segment
+is non-zero. Map pins: one per distinct brief place the 330px map
+scale allows — briefs 2 (New York), 4 (Tokyo), 5 (Taipei), 6 (Kyiv),
+9 (Port-au-Prince), 10 (Belgrade), 11 (Seoul), 12 (Brussels),
+13 (Istanbul), 15 (Paris), 16 (Berlin), 18 (Madrid), 19 (Bogotá),
+20 (Dakar), 27 (Shenzhen). No pin for briefs 1 and 3 (GLOBAL),
+7 (Kerch Bridge — a strait, not a land place), 8 (Kursk — would merge
+with Kyiv's pin), 14 (American Samoa — open ocean), 17 (Budapest —
+would merge with Belgrade's pin), 21 (Seoul — shares brief 11's pin),
+22 (Winchester — would merge with Paris's pin), 23–24 (Tokyo — share
+brief 4's pin), 25 (Taipei — shares brief 5's pin), 26 (New York —
+shares brief 2's pin). The renderer asserts the pin set and that no
+two pin circles touch. The map is back to 330px wide (the v7
+geometry) so the briefs band holds 27 one-line briefs in two columns;
+it has an Iberia bulge (Madrid sits on land), a Türkiye bridge
+polygon (Istanbul sits on land), Taiwan as its own island, and
+Hispaniola as a small island (Port-au-Prince sits on land). Europe
+stays separate from Asia — the sea gap survives north of the Türkiye
+bridge.
 
 ## Date discipline
 
 Stories that happened on 19 Nov local time and were only reported on
 20 Nov are worded so they never claim to have happened on 20 Nov
-("Thursday evening", "announced Thursday", "reported overnight", and
-the GTA VI figure is labelled a Sensor Tower estimate). The DATE CHECK
-footer names what was left out on purpose: the Shenzhen trilateral
-summit (19 Nov), the ICJ's Myanmar genocide verdict (19 Nov),
-Anthropic's IPO debut (19 Nov), the GTA VI launch itself (19 Nov),
-the EU's €45bn Ukraine loan (18 Nov), Van Gogh's $190.4m sale
-(18 Nov).
+("Thursday", "(Thu)", "(18 Nov)", "reported overnight", and the GTA
+VI figure is labelled a Sensor Tower estimate). The DATE CHECK footer
+was rewritten for v2 so it names NOTHING that is now a story on the
+page: the embassy strikes, Kerch Bridge, Kursk, Haiti, Serbia, Han,
+EU cyberattack, İmamoğlu, deep-sea sale, Arcom, Berlin summit, Spain
+debate, Colombia, CSAT, UK Young verdict and Rakuten all moved onto
+the page in this refresh as Bucket B. What the footer still names:
+the Shenzhen trilateral summit (19 Nov), the ICJ's Myanmar genocide
+verdict (19 Nov), Anthropic's IPO debut (19 Nov), the GTA VI launch
+itself (19 Nov), the EU's €45bn Ukraine loan (18 Nov), Van Gogh's
+$190.4m sale (18 Nov).
 
 Corrections baked in: Akvan's peak was 95 km/h, landfall 70–80 km/h —
-never 145 km/h. The Valkyries' WNBA title (Game 7, 31 Oct) is not a
-20 Nov story and is nowhere on this page.
+never 145 km/h. Take-Two has published NO official GTA VI sales
+figure; $2.36bn stays a labelled Sensor Tower estimate. Xavier's
+record is bounded: strongest November storm on record east of the
+date line. The Valkyries' WNBA title (Game 7, 31 Oct) is not a 20 Nov
+story and is nowhere on this page.
 
 ## How to run
 
@@ -116,90 +157,83 @@ python3 -P -s main.py      # grader entrypoint: copies entry.png to
 ```
 
 Deterministic: fixed data, fixed fonts, no clock, no network, no
-randomness. Two runs are byte-identical. Standard library + Pillow
-only; all pictures are drawn in code (flat diagrammatic style — solid
-colours, geometric pictograms, no gradients, no photorealistic
-shading, no detailed faces). Map positions are approximate.
+randomness. Verified for v2: `render_news20.py` run twice and
+`python3 -P -s main.py` run twice (fresh `/tmp` output dirs, TZ=UTC,
+PYTHONHASHSEED=0) — all four outputs byte-identical to each other and
+to the committed `entry.png` (SHA256
+`4326e8a199ba06e8958cec495cc7f293f3b36e0662fc79756bd6afe33879df5f`,
+259,633 bytes). Standard library + Pillow only; all pictures are
+drawn in code (flat diagrammatic style — solid colours, geometric
+pictograms, no gradients, no photorealistic shading, no detailed
+faces). Map positions are approximate.
 
 ## Sources
 
-Reuters, Asia Today, Formula 1, Fiji Met (RSMC Nadi), NordFX, KuCoin,
-AP, Al Jazeera, Samsung Newsroom, BleepingComputer, IMD — 20 Nov 2026.
-Full source list per story: `../work/research-news20.md`.
+Reuters, AP, Kyiv Independent, Formula 1, Fiji Met (RSMC Nadi),
+NordFX, KuCoin, Al Jazeera, Samsung Newsroom, BleepingComputer, CPS,
+IMD — 20 Nov 2026. Full source list per story:
+`../work/research-news20.md` and
+`../work/research-news20-addendum.md`.
 
-## Fix round — audit round 1 (20 Nov, ~15:00 WIB)
+## Fix round — v2 build (20 Nov, ~16:00 WIB)
 
-Independent audit verdict was NO-GO (1 BLOCKER, 5 MAJOR, 4 LOW). All
-ten defects were fixed in `render_news20.py` and re-rendered, except
-D10 which is DEFERRED (see below):
+Built on top of v1 commit `f0c5839` (audit round 2 verdict: GO, no
+defects). v2 fixes the items the v1 audits deferred or observed:
 
-- **D1 (BLOCKER):** COP31 headline and masthead subline no longer
-  assert an outcome — "final day **opens** with no deal", not "ends
-  with". The summit entered its final day with no agreement; the final
-  text was due by midnight Antalya Friday.
-- **D2:** masthead now reads "20 STORIES · FIVE REGIONS" (the strip
-  has MIDDLE EAST 0 and EUROPE 0, so "EVERY CONTINENT" was false).
-- **D3:** Xavier is now "strongest Nov storm east of the date line"
-  (headline) / "Nov record east of dateline" (deck) — the qualifier
-  from the research is on the page.
-- **D4:** F1 deck now dates FP2: "FP2 1:47.272, Thursday; FP1 washed
-  out." (The audit's exact wording, "FP2 1:47.272 (Thursday
-  evening); FP1 washed out Thursday.", is 308px in the 229px grid
-  cell and cannot fit on one line; the Thursday label on FP2 — the
-  point of the defect — is kept in full.)
-- **D5:** briefs band filled — brief type enlarged 11px → 12px and
-  the labelled fixtures line added below the briefs (see above); the
-  band now runs to just above the DATE CHECK box.
-- **D6:** map redrawn in native 560×175 coordinates with a light
-  graticule; Japan drawn as an island chain (Hokkaido, Honshu,
-  Kyushu), Taiwan as its own island, Europe as a separate polygon
-  with a sea gap east of it. Pins sit on the land they name: Tokyo
-  on Honshu, Taipei on Taiwan, New York on North America's east
-  coast, Shenzhen on China's south coast. Pin numbers still match
-  brief numbers; the renderer still asserts no two pins touch.
-- **D7:** briefs header is now "ALSO REPORTED ON FRIDAY 20 NOVEMBER
-  2026" (briefs 4–5 happened Thursday; their own text says so).
-- **D8:** the unexplained black bar after "DRAFT" in the COP31
-  illustration is now a tight chip around the word DRAFT, with
-  legible text beside it: "144 to 80 paras."
-- **D9:** Bitcoin deck now dates the outflow: "ETFs shed $306m Thu."
-  (The full "Thursday" spelling is 232px in the 229px cell; "Thu."
-  is the same date.)
-- **D10 — DEFERRED TO TOMORROW'S REFRESH:** briefs 2–3 (SoftBank
-  −15%, Taiwan −16%) still restate figures in lead 3's deck, because
-  there are NO other verified brief candidates tonight — all 20
-  verified stories are already on the page, and inventing
-  replacements is forbidden. The two briefs were reworded to add
-  distinct detail from the research instead (SoftBank as the heaviest
-  weight in the Nikkei's fall; Taiwan's short-selling curbs failing
-  to stop the slide). At refresh, replace these two brief slots with
-  genuinely new verified stories when the ~24 new briefs arrive.
+- **D10 (deferred in v1) — FIXED:** briefs 2–3 no longer restate
+  lead 3's deck. They are now Wall Street's Thursday close and oil,
+  displaced from the grid by the promoted N1/N2. SoftBank and Taiwan
+  stay on the page at briefs 24–25 with their distinct detail
+  (heaviest weight in the Nikkei's fall; short-selling curbs failing)
+  because they are verified stories — dropping them would undercount
+  the day (the honest total is 42, not 40).
+- **O1 (observation) — FIXED:** the F1 deck now dates FP1 as well:
+  "FP2 1:47.272 Thu; FP1 washed out Thu."
+- **O2 (observation) — FIXED:** the COP31 headline is rewritten to
+  the afternoon fact — "COP31's final day ends with no deal yet" —
+  with the deck carrying "talks head into overtime". No outcome is
+  invented: as of 08:05 UTC there was still no final text.
+- **Numbers strip re-checked** against the final story set: five of
+  the six figures now come from the new batch (34 Haiti killed;
+  ~2,700 Taiwan accounts; 140–97 Serbia vote; 98 CSAT cheats;
+  15.72m Rakuten accounts) plus Akvan's 370,000 evacuated.
+- **DATE CHECK rewritten** (see "Date discipline" above) so it lists
+  nothing that is now a story on the page.
+- **Map and briefs band rebuilt:** 330px map (v7 geometry) with 15
+  pins, 27 one-line briefs in two columns; the v1 fixtures line is
+  dropped (matches unplayed at build time).
+- **Lead updates:** Akvan deck — no deaths, no major damage so far,
+  39 trains cancelled (U2). Xavier — weakening Cat 2, 167 km/h,
+  Pukapuka storm alert (U3). Gold ~$3,544 and Bitcoin ~$61,743 are
+  Friday-morning snapshots, labelled as such (U4/U5). Iowa deck —
+  governor urged the delay, environmental groups sued (U8).
 
-## Handover — refresh tomorrow morning (Sat 21 Nov)
+## Handover — final refresh tomorrow morning (Sat 21 Nov)
 
-Re-check before rebuilding (see "STILL DEVELOPING / RE-CHECK
-TOMORROW" in `../work/research-news20.md`): **1.** COP31 final text —
-did it close Friday, run into overtime, or collapse? Any fossil-fuel
-language back? $120bn restored? CCUS 500m-tonne target kept? Did
-Panama block consensus? **2.** Akvan damage assessment — deaths,
-injuries, houses/crops/power damage, final rainfall. **3.** Xavier
-track — still Cat 4 or weakening? Any land impact on
-Suwarrow/Nassau/Pukapuka? **4.** US Friday market close — Dow/S&P/
-Nasdaq finals, VIX, Bitcoin and gold closes, Anthropic day-2 price.
-**5.** Gold exact level (morning snapshots disagreed $3,553–$3,715).
-**6.** F1 Las Vegas FP3 and qualifying. **7.** Friday-night sport
-results (NBA 9 games; Bayern–Köln, Athletic–Espanyol, Troyes–Le
-Havre, Al Ahli–Al Nassr; NHL). **8.** Trump White House news
-conference (Friday). **9.** Spain debate reactions (Sánchez–Feijóo,
-19 Nov 22:00). **10.** Colombia strike aftermath. **11.** Senegal
-boat search toll. **12.** Iowa detonation — Monday 23 Nov plan holds?
-**13.** GTA VI official numbers — has Take-Two published any yet?
-**14.** Europe youth action 20 Nov — did it happen, at what scale?
-**15.** Any late-breaking 20 Nov story — re-run a full news sweep.
+Re-check before rebuilding (see "NOT YET RESOLVABLE TONIGHT" in
+`../work/research-news20-addendum.md`): **1.** COP31 final text —
+the single most important re-check: did it close Friday, run into
+overtime, or collapse? Fossil-fuel language back? $120bn restored?
+CCUS kept? Panama block? **2.** US Friday market close — Dow/S&P/
+Nasdaq finals, VIX, Bitcoin and gold Friday closes, Anthropic ANT
+day-2 price. **3.** Gold Friday close (use the close, not the ~$3,544
+morning snapshot). **4.** Trump White House news conference
+(scheduled Fri 12:00 ET = midnight WIB). **5.** F1 Las Vegas FP3 +
+qualifying (Saturday local). **6.** Friday-night sport results (NBA 9
+games; Bayern–Köln, Athletic–Espanyol, Troyes–Le Havre, Al Ahli–Al
+Nassr; NHL) — the fixtures line was dropped in v2, so results are
+new stories if they make the page. **7.** Europe youth action scale
+(turnout figures not yet reported). **8.** Hungary veto formal step
+(did the clusters formally open at the EU ambassadors' meeting?).
+**9.** Akvan final damage assessment (houses/crops/power). **10.**
+Xavier final track (next RSMC Nadi bulletins; land impact on
+Suwarrow/Nassau/Pukapuka). **11.** Any late-breaking 20-Nov story —
+re-run a full sweep.
 
-Refresh plan: add ~24 verified stories as briefs (the briefs band goes
-back to two columns) — replace briefs 2–3 first (SoftBank, Taiwan;
-D10 was deferred because no replacement existed tonight), update the
-masthead count and region strip to the new total, re-check the numbers
-strip against the new stories, re-audit, and submit before entries
-close Sun 22 Nov 07:00 WIB.
+Refresh plan: update the COP31 lead to the actual outcome first, then
+the US close / gold / Bitcoin closes, Trump presser, F1 qualifying,
+Friday-night sport, and any late-breaking items; re-audit; push; set
+the repo About; bundle (pre-scrub evidence-session copies by pattern
+per the news-19 v7 lesson, verify the extracted bundle clean); kit
+check with transcripts; submit before entries close Sun 22 Nov
+07:00 WIB with Ketua's approval.
