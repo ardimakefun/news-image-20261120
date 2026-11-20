@@ -6,9 +6,10 @@ The afternoon refresh (research-news20-addendum.md, ~15:05-16:00 WIB)
 added 22 verified stories to v1's 20, so this page is an honest
 42-story page, not a padded 44: 3 illustrated leads + 12 illustrated
 grid items + 27 numbered briefs in two columns beside a 330px world
-map. The three leads are COP31's final day in Antalya (the final day
-ENDED with no deal yet and talks head into overtime — as of 08:05 UTC
-there was still no final text, and no outcome is invented), Cyclone
+map. The three leads are COP31's final day in Antalya (still no deal
+as talks run on — as of 08:05 UTC there was still no final text, and
+no outcome is invented; the final text was due at midnight Antalya
+Friday and overtime was only expected), Cyclone
 Akvan's landfall near Gopalpur (370,000 people evacuated to 9,341
 shelters, no deaths and no major damage so far, 39 trains cancelled)
 and the Asian market plunge (Nikkei -4.1%, worst week since 2020). The

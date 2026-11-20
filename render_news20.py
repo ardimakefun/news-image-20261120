@@ -13,8 +13,8 @@ honest 42-story page: 3 illustrated leads + 12 illustrated grid items
 + 27 numbered briefs in two columns beside a 330px map.
 
 v2 changes over v1 (commit f0c5839): the COP31 lead headline is
-rewritten — the final day ENDED with no deal yet and talks head into
-overtime (as of 08:05 UTC there was still no final text; no outcome is
+rewritten — the final day has STILL produced no deal and talks run on
+(as of 08:05 UTC there was still no final text; no outcome is
 invented); Akvan's deck now says no deaths, no major damage so far, 39
 trains cancelled; Xavier is updated to a weakening Cat 2 at 167 km/h
 with Pukapuka on storm alert; gold and Bitcoin use the latest verified
@@ -203,15 +203,17 @@ REGIONS = [
 ]
 
 # The three leads: (panel key, kicker, kicker colour, headline, deck).
-# Panel art is drawn by draw_lead_* below. v2: COP31's headline is
-# rewritten to the afternoon-refresh fact — the final day ENDED with no
-# deal yet and talks head into overtime (addendum U1: still no final
-# text as of 08:05 UTC; no outcome invented). Akvan's deck now says no
+# Panel art is drawn by draw_lead_* below. v2 fix round: COP31's
+# headline says the final day has still produced no deal and talks run
+# on — the final text was due at midnight Antalya Friday (21:00 UTC)
+# and overtime was only expected, so no end-of-day outcome is asserted
+# (audit D1; the v2 build's "ends with no deal yet" repeated the v1 D1
+# error and is replaced here). Akvan's deck now says no
 # deaths, no major damage so far, 39 trains cancelled (U2).
 LEADS = [
     ("cop31", "ANTALYA · CLIMATE — FINAL DAY", ACCENT,
-     "COP31's final day ends with no deal yet",
-     "No final text by Friday; talks head into overtime. Draft cut to "
+     "COP31's final day: still no deal as talks run on",
+     "No final text yet; talks expected to run into overtime. Draft cut to "
      "80 paras; $120bn aid figure gone; Panama vows to block."),
     ("akvan", "ODISHA · WEATHER", SKY,
      "Cyclone Akvan hits India's coast; 370,000 evacuated",
@@ -238,7 +240,7 @@ GRID = [
     (MAROON, "bridge", "3 killed", "KYIV · UKRAINE",
      "Kyiv hit overnight: 3 killed, 3 bridges damaged",
      "Largest bridge attack of the war."),
-    (STEEL, "crowd", "25+", "EUROPE · PROTESTS",
+    (STEEL, "crowd", "7", "EUROPE · PROTESTS",
      "Youth take to the streets across Europe",
      "Cost-of-living protests in 7 countries."),
     (SKY, "cyclone", "167", "SOUTH PACIFIC · WEATHER",
@@ -300,7 +302,11 @@ BRIEFS = [
     ("KERCH BRIDGE", "Neptune missiles hit railway (Thu)"),
     ("KURSK", "Ukrainian drone attack injures 11 (Thu)"),
     ("HAITI", "Forces retake gang corridor; 34 killed (Thu)"),
-    ("BELGRADE", "Lecturer elected speaker, acting president"),
+    # "elected" does not fit the one-line 10px brief once "(Thu)" is
+    # added (303 px vs 297 px col width), so the fix uses "voted" —
+    # same facts (lecturer, speaker, acting president, Thu), and the
+    # 140–97 vote is in the numbers strip.
+    ("BELGRADE", "Lecturer voted speaker, acting president (Thu)"),
     ("SEOUL", "Top court overturns ex-PM Han's sentence (Thu)"),
     ("BRUSSELS", "EU confirms AI-assisted cyberattack (Thu)"),
     ("ISTANBUL", "Jailed mayor barred from 2028 race (Thu)"),
@@ -340,21 +346,22 @@ BRIEFS = [
 # Briefs 21 (SEOUL), 23 and 24 (TOKYO), 25 (TAIPEI) and 26 (NEW YORK)
 # share a place with an earlier brief and use its pin. Pins sit on the
 # land they name: 2 New York on North America's east coast, 4 Tokyo on
-# the Japan island, 5 Taipei on the Taiwan island, 6 Kyiv on Europe,
-# 9 Port-au-Prince on the Hispaniola island, 10 Belgrade on Europe,
-# 11 Seoul on Asia's east coast, 12 Brussels on Europe, 13 Istanbul on
+# the enlarged Japan island, 5 Taipei on the enlarged Taiwan island,
+# 6 Kyiv on Europe, 9 Port-au-Prince on the enlarged Hispaniola island,
+# 10 Belgrade on Europe, 11 Seoul on the Korea peninsula protrusion,
+# 12 Brussels on Europe, 13 Istanbul on
 # the Türkiye bridge, 15 Paris on Europe, 16 Berlin on Europe,
 # 18 Madrid on the Iberia bulge, 19 Bogotá on South America, 20 Dakar
 # on Africa's west coast, 27 Shenzhen on China's south coast. Pins are
 # spaced so no two 12px pin circles touch (the renderer asserts this).
 PINS = [
     (2, 88, 38),
-    (4, 312, 34),
-    (5, 294, 64),
+    (4, 319, 34),
+    (5, 297, 75),
     (6, 196, 34),
     (9, 100, 70),
     (10, 186, 42),
-    (11, 298, 48),
+    (11, 298, 50),
     (12, 180, 22),
     (13, 214, 44),
     (15, 168, 32),
@@ -394,7 +401,8 @@ DATE_CHECK = (
     "(19 Nov) · Anthropic's IPO debut (19 Nov) · the GTA VI launch "
     "itself (19 Nov) · the EU's €45bn Ukraine loan (18 Nov) · Van "
     "Gogh's $190.4m sale (18 Nov). All other stories happened, or were "
-    "first reported, on Friday 20 November 2026."
+    "first reported, on Friday 20 November 2026, except the Hungary "
+    "veto (first reported 18 Nov, dated on the page)."
 )
 
 # ---------------------------------------------------------------- pictograms
@@ -650,10 +658,15 @@ LEAD_DRAW = {"cop31": draw_lead_cop31, "akvan": draw_lead_akvan,
 # can hold 27 one-line briefs in two columns. Europe has an Iberia
 # bulge (so the Madrid pin sits on land) and a separate Türkiye bridge
 # polygon in the Europe/Asia gap (so the Istanbul pin sits on land);
-# Japan is drawn as an island, Taiwan as its own small island, and
-# Hispaniola as a small island (so the Tokyo, Taipei and Port-au-Prince
-# pins sit on the land they name). Europe stays separate from Asia —
-# the sea gap east of Europe survives above the Türkiye bridge.
+# Japan, Taiwan and Hispaniola are drawn deliberately LARGER than scale
+# (each at least ~18 px wide, land extending visibly beyond the 12 px
+# pin on all sides — v2 fix round, audit D3: the v2 islands were
+# smaller than the pins and hid under them, so the pins read as
+# floating), and a Korea peninsula protrusion juts from Asia's east
+# coast (so the Seoul pin sits on land). Asia's east edge is pulled
+# west to x=304 so a sea gap survives between the mainland, Korea and
+# Japan. Europe stays separate from Asia — the sea gap east of Europe
+# survives above the Türkiye bridge.
 
 MAP_W, MAP_H = 330, 175
 
@@ -676,21 +689,28 @@ CONTINENTS = [
     # Africa
     [(166, 60), (192, 54), (212, 64), (210, 88), (200, 118),
      (188, 108), (176, 84)],
-    # Asia — west edge at x=212, clear of Europe's east edge (x=206)
-    [(212, 18), (258, 8), (306, 16), (322, 32), (300, 50),
+    # Asia — west edge at x=212, clear of Europe's east edge (x=206);
+    # east edge pulled west to x=304 so Japan stays a separate island
+    # with a sea gap, and Korea can protrude from the coast
+    [(212, 18), (258, 8), (298, 16), (304, 30), (294, 48),
      (282, 64), (264, 56), (246, 44), (224, 34)],
     # Türkiye bridge — a small polygon in the Europe/Asia gap so the
     # Istanbul pin sits on land; the sea gap survives north of it
     [(206, 38), (224, 36), (226, 48), (208, 50)],
+    # Korea peninsula — protrusion on Asia's east coast so the Seoul
+    # pin sits on land (v2 fix round, audit D3)
+    [(290, 36), (306, 38), (308, 52), (298, 62), (287, 54)],
     # India
     [(250, 58), (262, 60), (258, 88), (248, 84)],
-    # Japan — island
-    [(308, 28), (314, 26), (316, 40), (310, 44)],
-    # Taiwan — its own small island off China's south-east coast,
-    # drawn larger than scale so it stays visible under its pin
-    [(288, 58), (294, 56), (296, 66), (290, 68)],
-    # Hispaniola — small island so the Port-au-Prince pin sits on land
-    [(96, 68), (104, 66), (106, 72), (98, 74)],
+    # Japan — island, drawn larger than scale (22x34 px) so the Tokyo
+    # pin sits clearly on land with land visible on all sides
+    [(312, 20), (324, 16), (329, 30), (326, 46), (314, 50), (308, 34)],
+    # Taiwan — its own island off China's south-east coast, drawn
+    # larger than scale (22x24 px) so the Taipei pin sits on land
+    [(288, 66), (304, 64), (308, 76), (300, 88), (286, 80)],
+    # Hispaniola — island drawn larger than scale (28x26 px) so the
+    # Port-au-Prince pin sits on land with land visible on all sides
+    [(86, 60), (110, 58), (114, 72), (102, 84), (86, 78)],
     # Australia
     [(272, 128), (300, 124), (310, 136), (296, 150), (276, 144)],
 ]
@@ -758,7 +778,7 @@ def main():
     assert text_w(d, title, F_SERIF(54)) <= CW, "masthead title too wide"
     d.text((M, y), title, font=F_SERIF(54), fill=INK)
     y = 86
-    sub = ("COP31's final day ends with no deal yet · Cyclone Akvan hits "
+    sub = ("COP31's final day: still no deal · Cyclone Akvan hits "
            "India's coast · Asian markets plunge")
     assert text_w(d, sub, F_SERIF_IT(16)) <= CW, "masthead subline too wide"
     d.text((M, y), sub, font=F_SERIF_IT(16), fill=ACCENT)
@@ -862,7 +882,7 @@ def main():
     y = 735
     tracked(d, M, y, "WHERE IT HAPPENED", F_BOLD(12), ACCENT, tracking=2)
     briefs_x = M + MAP_W + 16
-    tracked(d, briefs_x, y, "ALSO REPORTED ON FRIDAY 20 NOVEMBER 2026",
+    tracked(d, briefs_x, y, "ALSO REPORTED — FRIDAY 20 NOVEMBER 2026",
             F_BOLD(11), ACCENT, tracking=2)
     map_y = 751
     draw_map(d, M, map_y, MAP_W, MAP_H)

@@ -24,10 +24,10 @@ unverified or non-20-Nov items.
 
 **Leads**
 
-1. **COP31's final day ends with no deal yet** (Antalya) — no final
-   text by Friday; talks head into overtime. Draft cut to 80
-   paragraphs, the $120bn aid figure gone; Panama vows to block a
-   text with no oil cap. (v1's "final day opens with no deal" was
+1. **COP31's final day: still no deal as talks run on** (Antalya) —
+   no final text yet; talks expected to run into overtime. Draft cut
+   to 80 paragraphs, the $120bn aid figure gone; Panama vows to block
+   a text with no oil cap. (v1's "final day opens with no deal" was
    true Friday morning only; as of 08:05 UTC there was still no final
    text — no outcome is invented.)
 2. **Cyclone Akvan hits India's coast; 370,000 evacuated** (Gopalpur,
@@ -61,7 +61,7 @@ barrel; WTI ~$84 · 4. Japan core CPI 2.2%, above target again ·
 damage Austrian, Dutch embassies in Kyiv (Thu) · 7. Neptune missiles
 hit Kerch Bridge railway (Thu) · 8. Ukrainian drone attack injures 11
 in Kursk (Thu) · 9. Haiti forces retake gang corridor; 34 killed
-(Thu) · 10. Lecturer elected speaker, acting president (Serbia) ·
+(Thu) · 10. Lecturer voted speaker, acting president (Thu) ·
 11. Top court overturns ex-PM Han's sentence (Thu) · 12. EU confirms
 AI-assisted cyberattack (Thu) · 13. Jailed mayor barred from 2028
 race, Istanbul (Thu) · 14. First US deep-sea leases sell for $6m
@@ -157,12 +157,12 @@ python3 -P -s main.py      # grader entrypoint: copies entry.png to
 ```
 
 Deterministic: fixed data, fixed fonts, no clock, no network, no
-randomness. Verified for v2: `render_news20.py` run twice and
+randomness. Verified for the v2 fix round: `render_news20.py` run twice and
 `python3 -P -s main.py` run twice (fresh `/tmp` output dirs, TZ=UTC,
 PYTHONHASHSEED=0) — all four outputs byte-identical to each other and
 to the committed `entry.png` (SHA256
-`4326e8a199ba06e8958cec495cc7f293f3b36e0662fc79756bd6afe33879df5f`,
-259,633 bytes). Standard library + Pillow only; all pictures are
+`634e1fc186fd111caedbab759f98ab1b9ca40177d3a76dc1c1af8e26476c5de2`,
+261,854 bytes). Standard library + Pillow only; all pictures are
 drawn in code (flat diagrammatic style — solid colours, geometric
 pictograms, no gradients, no photorealistic shading, no detailed
 faces). Map positions are approximate.
@@ -207,6 +207,63 @@ defects). v2 fixes the items the v1 audits deferred or observed:
   Pukapuka storm alert (U3). Gold ~$3,544 and Bitcoin ~$61,743 are
   Friday-morning snapshots, labelled as such (U4/U5). Iowa deck —
   governor urged the delay, environmental groups sued (U8).
+
+## Fix round — v2 audit defects D1–D5 (20 Nov, ~15:20 WIB)
+
+Independent audit round 1 for v2 (`../work/audit-log-news20-v2.md`)
+verdict: NO-GO — 1 BLOCKER, 2 MAJOR, 2 LOW. All five fixed in this
+round, on top of commit `3341653`; nothing else on the page changed
+(3 + 12 + 27 = 42; region strip still sums to 42):
+
+- **D1 (BLOCKER) — FIXED:** the COP31 headline asserted an outcome
+  that had not happened ("final day ends with no deal yet" — the
+  final text was due midnight Antalya Friday, 21:00 UTC, and overtime
+  was only expected). Headline → "COP31's final day: still no deal as
+  talks run on"; masthead subline → "COP31's final day: still no
+  deal · Cyclone Akvan hits India's coast · Asian markets plunge";
+  deck → "No final text yet; talks expected to run into overtime.
+  Draft cut to 80 paras; $120bn aid figure gone; Panama vows to
+  block." The addendum's U1 prescription ("ends with no deal yet")
+  repeated the v1 D1 error and was NOT followed literally, per the
+  audit. At the Saturday refresh the headline must be rewritten to
+  the actual outcome once the final text is known.
+- **D2 (MAJOR) — FIXED:** brief 10 (Belgrade) had no Thursday label.
+  Brief → "Lecturer voted speaker, acting president (Thu)". One
+  wording deviation, forced by width: the audit's exact "Lecturer
+  elected speaker, acting president (Thu)" measures 303 px against
+  the 297 px one-line column, so "elected" became "voted" (same facts;
+  the 140–97 vote is in the numbers strip). Brief 17 is kept.
+- **D3 (MAJOR) — FIXED:** pins 9 (Haiti), 5 (Taipei) and 11 (Seoul)
+  read as floating in open ocean, and pin 4 (Tokyo) straddled the
+  coast. Japan (8×18 px), Taiwan (8×12 px) and Hispaniola (10×8 px)
+  are redrawn larger than scale — Japan 22×34 px, Taiwan 22×24 px,
+  Hispaniola 28×26 px — Asia's east edge is pulled west to x=304 so
+  a sea gap survives, a Korea peninsula protrusion is drawn on Asia's
+  east coast, and pins moved onto the new land: Tokyo (319, 34),
+  Taipei (297, 75), Seoul (298, 50). Re-verified visually at 4× zoom
+  AND by pixel check: every pin now has land visible in all four
+  directions (ring land fraction 0.78–1.00 for pins 4, 5, 9, 11, up
+  from 0.00–0.59).
+- **D4 (LOW) — FIXED:** the blanket date lines were false for brief
+  17 (Hungary veto, first reported 18 Nov). DATE CHECK closing
+  sentence → "All other stories happened, or were first reported, on
+  Friday 20 November 2026, except the Hungary veto (first reported
+  18 Nov, dated on the page)."; briefs header → "ALSO REPORTED —
+  FRIDAY 20 NOVEMBER 2026". Brief 17 keeps its "(18 Nov)" and stays
+  on the page.
+- **D5 (LOW) — FIXED:** the youth-action grid band mark "25+" was
+  unexplained against the deck's "7 countries" (25+ is the Youth
+  Strike's country count, N2). Mark → "7", matching the deck.
+
+Verification for this round: renderer run twice + `main.py` run twice
+(fresh `/tmp` dirs, TZ=UTC, PYTHONHASHSEED=0) — all four outputs
+byte-identical, SHA256
+`634e1fc186fd111caedbab759f98ab1b9ca40177d3a76dc1c1af8e26476c5de2`
+(261,854 bytes, 1024×1024 RGB). Full image, 300px downscale and 4×
+zooms of the Asia–Pacific pins, Europe cluster and Caribbean pin all
+viewed: no clipped or overlapping text, every pin sits visibly on
+land. No re-audit has been run after this fix round; entries close
+Sun 22 Nov 07:00 WIB.
 
 ## Handover — final refresh tomorrow morning (Sat 21 Nov)
 
