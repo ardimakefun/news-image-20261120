@@ -1,67 +1,76 @@
 #!/usr/bin/env python3
-"""Render news-image-20261120 v2: "The World in One Day — 42 stories,
-Friday 20 November 2026".
+"""Render news-image-20261120 v3 (final refresh): "The World in One Day
+— 42 stories, Friday 20 November 2026".
 
 Build-time only: the grader never runs this file (it runs main.py, which
 only copies the committed entry.png). All news data is embedded below as
 fixed data, so the render is deterministic: same input -> same PNG bytes.
-News researched live Fri 20 Nov 2026, v1 window ~14:35-15:30 WIB plus the
-afternoon refresh ~15:05-16:00 WIB (see ../work/research-news20.md and
-../work/research-news20-addendum.md). The refresh adds 22 verified
-stories (N1-N22: 4 Bucket A, 18 Bucket B) to v1's 20, so this page is an
-honest 42-story page: 3 illustrated leads + 12 illustrated grid items
-+ 27 numbered briefs in two columns beside a 330px map.
+News researched live Sat 21 Nov 2026, ~12:30-13:30 WIB (see
+../work/research-news20-final.md, which resolves every Part D item from
+the addendum; v2 content background is in ../work/research-news20.md
+and ../work/research-news20-addendum.md). This page is an honest
+42-story page: 3 illustrated leads + 12 illustrated grid items + 27
+numbered briefs in two columns beside a 330px map.
 
-v2 changes over v1 (commit f0c5839): the COP31 lead headline is
-rewritten — the final day has STILL produced no deal and talks run on
-(as of 08:05 UTC there was still no final text; no outcome is
-invented); Akvan's deck now says no deaths, no major damage so far, 39
-trains cancelled; Xavier is updated to a weakening Cat 2 at 167 km/h
-with Pukapuka on storm alert; gold and Bitcoin use the latest verified
-Friday-morning snapshots (~$3,544 and ~$61,743, labelled as morning
-levels — Friday closes come tomorrow); the two strongest new stories,
-the Kyiv overnight barrage and the Europe-wide youth action, are
-promoted into the grid, displacing Wall Street's Thursday close and
-oil to the briefs; the deferred audit defect D10 is fixed by making
-briefs 2-3 Wall Street and oil instead of SoftBank and Taiwan, which
-now sit at briefs 24-25 with their distinct detail (they stay on the
-page because they are verified stories — dropping them would undercount
-the day); the F1 deck now dates FP1 as Thursday too (audit observation
-O1); the briefs band is two columns of one-line 10px briefs, the map
-is back to 330px wide with pins for every brief place the scale allows
-(Budapest, Kursk and Winchester have no pin — each would merge with a
-neighbouring pin at this scale — and Kerch Bridge and American Samoa
-have none because one is a strait and the other is open ocean); the
-DATE CHECK footer is rewritten so it names nothing that is now a story
-on the page; the Friday-night fixtures line is dropped (the matches had
-not been played at build time; results come tomorrow).
+v3 changes over v2 (commit f0d364f): the COP31 lead carries the FINAL
+outcome — talks ran into overtime with no deal, third draft due
+Saturday (never "deal reached" or "deal collapses": no final text
+exists); Akvan's deck is the FINAL assessment — no deaths, no injuries,
+no major damage, 372,000 evacuated, now a low over Odisha; lead 3 uses
+the FINAL Asian closes (Nikkei -5.06%, KOSPI -5.21%, Taiex -6.23%);
+the strongest new story, Russian missiles landing in Poland, is
+promoted into the grid, displacing Malawi's fuel crisis to the briefs;
+Kyiv's toll is corrected 3 -> 9 killed and Kursk's 11 -> 13 injured;
+Xavier is final at Cat 1, 65 km/h, warnings cancelled; F1 is the
+qualifying result (Antonelli fastest 1:33.893, penalised, Verstappen
+inherits pole); GTA VI is Take-Two's OFFICIAL $3.79bn / 32.5m copies
+(the Sensor Tower $2.36bn estimate is obsolete and gone); Trump is the
+90-minute presser; Bitcoin (~$58,800) and gold (~$3,538) are Friday
+closes; Wall Street's brief is the Friday close (Dow -950, S&P -3.7%,
+Nasdaq -5.3%, VIX 35.89) and Anthropic's brief is the day-2 close
+(-8.5% to $88.91); Hungary's brief is the 20 Nov formal step; the 6
+weakest v2 briefs are replaced by Peru, Nvidia, Palisades, Bayer,
+UK-EU and Malawi; the DATE CHECK footer drops the Hungary, GTA VI
+launch and Anthropic debut lines and adds the Tsushima bomber flight
+plus four strong 20 Nov stories left out for space. The briefs band is
+still two columns of one-line 10px briefs, the map is still 330px wide
+with pins for every brief place the scale allows (Budapest, Kursk and
+Winchester have no pin — the first two would merge with a neighbouring
+pin, the UK polygon is too small for a 12px pin — and Kerch Bridge has
+none because it is a strait); the DATE CHECK footer names nothing that
+is now a story on the page.
 
 Story count: 3 leads + 12 grid + 27 briefs = 42 stories. Region counts,
 counted by where each story happened (Antalya counted ASIA, as in Asia
-Minor):
-  ASIA 12, MIDDLE EAST 1, EUROPE 12, AFRICA 2, AMERICAS 7, OCEANIA 2,
-  GLOBAL 6  ->  12+1+12+2+7+2+6 = 42.
+Minor) — recounted from the final list, NOT copied from v2:
+  ASIA 9, MIDDLE EAST 1, EUROPE 13, AFRICA 2, AMERICAS 10, OCEANIA 1,
+  GLOBAL 6  ->  9+1+13+2+10+1+6 = 42.
 Every strip segment is non-zero, so the masthead says "42 STORIES ·
 SIX REGIONS" (six named regions plus global stories).
 
 Date discipline: stories that happened 19 Nov local time and were only
-reported on 20 Nov (Bucket B — F1 Las Vegas practice, the GTA VI
-$2.36bn Sensor Tower estimate, the Iowa blast delay, Trump's Iran
-comment, the VMware zero-day, Wall Street's Thursday close, the
-Anthropic index news, the Air Force One phones, and all of N5-N22)
-carry their Thursday labels on the page ("Thursday", "(Thu)", "reported
-18 Nov") and are never presented as Friday events. The DATE CHECK
-footer names the big 19 Nov stories left out on purpose (Shenzhen
-trilateral summit, ICJ Myanmar verdict, Anthropic IPO debut, GTA VI
-launch itself) and the 18 Nov items (EU EUR45bn loan, Van Gogh
-$190.4m sale).
+reported on 20 Nov (Bucket B — the Iowa blast delay, the VMware
+zero-day, and all of N5-N22) carry their Thursday labels on the page
+("Thursday", "(Thu)") and are never presented as Friday events. F1
+qualifying ran Friday night Las Vegas local time (= Saturday morning
+WIB) and is kickered "LAS VEGAS · FORMULA 1" with no WIB date
+confusion. The DATE CHECK footer names the big 19 Nov stories left out
+on purpose (Shenzhen trilateral summit, ICJ Myanmar genocide verdict,
+Russian bombers' Tsushima Strait flight) and the 18 Nov items (EU
+EUR45bn loan, Van Gogh $190.4m sale), plus four strong 20 Nov stories
+left out for space.
 
 Corrections baked in: Akvan's peak was 95 km/h and landfall 70-80 km/h
-— never 145 km/h. Take-Two has published NO official GTA VI sales
-figure; $2.36bn stays a labelled Sensor Tower estimate. Xavier's record
-is bounded: strongest November storm on record EAST OF THE DATE LINE.
-The Valkyries' WNBA title (Game 7, 31 Oct) is not a 20 Nov story and
-is nowhere on this page.
+— never 145 km/h. Take-Two HAS now published official GTA VI sales
+figures ($3.79bn day one, 32.5m copies pre-release); the old Sensor
+Tower $2.36bn estimate is obsolete and appears nowhere on this page.
+Xavier's record is bounded: strongest November storm on record EAST OF
+THE DATE LINE. The Valkyries' WNBA title (Game 7, 31 Oct) is not a
+20 Nov story and is nowhere on this page. Figures flagged NOT VERIFIED
+in the final research are never asserted: no Friday oil close (brief 3
+keeps v2's figures as a labelled Friday-morning snapshot), no Akvan
+damage numbers beyond "no major damage", no Xavier damage/death
+figures, no Italy turnout figure beyond the labelled union claim.
 
 Style is deliberately NON-photorealistic: flat geometric diagrammatic
 illustration in the newspaper-infographic manner — solid colour blocks,
@@ -181,126 +190,168 @@ def wrap_strict(draw, text, f, max_w, max_lines, what):
 
 # ------------------------------------------------------------------- data
 # Fixed news data for Friday 20 November 2026, from
-# ../work/research-news20.md. Every headline, figure and date below is
-# as written there; nothing is invented. Figures that are estimates are
-# labelled on the page (GTA VI $2.36bn — Sensor Tower estimate).
+# ../work/research-news20-final.md (v2 background in
+# ../work/research-news20.md and ../work/research-news20-addendum.md).
+# Every headline, figure and date below is as written there; nothing is
+# invented. Figures that are estimates are labelled on the page; the
+# GTA VI figures are Take-Two OFFICIAL ($3.79bn / 32.5m copies) and the
+# old Sensor Tower $2.36bn estimate is obsolete and appears nowhere.
 
 # Region colours for the counted strip (name, count, colour).
-# v2: 42 stories — ASIA 12 (leads 3 + Samsung + N3, N4, N10, N20, N22,
-# A11, A12, B8), MIDDLE EAST 1 (N12), EUROPE 12 (grid N1, N2 + N5, N6,
-# N7, N9, N11, N14, N15, N16, N17, N21), AFRICA 2 (Malawi + N19),
-# AMERICAS 7 (grid F1, Iowa, Trump + B6, N8, N18, B7), OCEANIA 2
-# (Xavier + N13), GLOBAL 6 (grid GTA VI, VMware, Bitcoin, gold + A10,
-# A9). Sum: 12+1+12+2+7+2+6 = 42.
+# v3 (final refresh): 42 stories, recounted from the final list —
+# ASIA 9 (leads 3 + Samsung + CPI, Taiwan accounts, Han, CSAT,
+# Rakuten), MIDDLE EAST 1 (Istanbul mayor), EUROPE 13 (grid Poland,
+# Kyiv, youth + embassy strikes, Kerch Bridge, Kursk, Serbia speaker,
+# EU cyberattack, Berlin summit, Hungary veto, Spain debate, Young
+# verdict, UK-EU deals), AFRICA 2 (Malawi brief, Senegal boat),
+# AMERICAS 10 (grid F1, Iowa, Trump + Wall Street close, Haiti, Peru
+# quake, Palisades verdict, Bayer deal, Nvidia, Anthropic day 2),
+# OCEANIA 1 (Xavier), GLOBAL 6 (grid GTA VI, VMware, Bitcoin, gold +
+# dollar/yield, oil). Sum: 9+1+13+2+10+1+6 = 42. The v2 strip
+# (12/1/12/2/7/2/6) is NOT reused: Poland adds a EUROPE story, Malawi
+# moves grid->brief (still AFRICA), Peru/Nvidia/Palisades/Bayer add
+# AMERICAS, and the dropped SoftBank/Taiwan-week briefs remove ASIA.
 REGIONS = [
-    ("ASIA", 12, (179, 71, 36)),
+    ("ASIA", 9, (179, 71, 36)),
     ("MIDDLE EAST", 1, (138, 109, 27)),
-    ("EUROPE", 12, (51, 89, 126)),
+    ("EUROPE", 13, (51, 89, 126)),
     ("AFRICA", 2, (47, 107, 51)),
-    ("AMERICAS", 7, (107, 78, 142)),
-    ("OCEANIA", 2, (31, 110, 110)),
+    ("AMERICAS", 10, (107, 78, 142)),
+    ("OCEANIA", 1, (31, 110, 110)),
     ("GLOBAL", 6, (85, 85, 85)),
 ]
 
 # The three leads: (panel key, kicker, kicker colour, headline, deck).
-# Panel art is drawn by draw_lead_* below. v2 fix round: COP31's
-# headline says the final day has still produced no deal and talks run
-# on — the final text was due at midnight Antalya Friday (21:00 UTC)
-# and overtime was only expected, so no end-of-day outcome is asserted
-# (audit D1; the v2 build's "ends with no deal yet" repeated the v1 D1
-# error and is replaced here). Akvan's deck now says no
-# deaths, no major damage so far, 39 trains cancelled (U2).
+# Panel art is drawn by draw_lead_* below. v3 (final refresh,
+# research-news20-final.md Part F1/F2/F4): COP31's headline is the
+# FINAL outcome — the talks ran into overtime with no deal, a third
+# draft due Saturday; never "deal reached" or "deal collapses" (no
+# final text exists). Akvan's deck is the FINAL assessment — no deaths,
+# no injuries, no major damage; 372,000 evacuated; now a low over
+# Odisha (the "so far" is dropped). Lead 3 uses the FINAL Friday
+# closes: Nikkei -5.06%, KOSPI -5.21%, Taiex -6.23% (v2's -4.1% /
+# -4.4% / -5% were intraday figures).
 LEADS = [
     ("cop31", "ANTALYA · CLIMATE — FINAL DAY", ACCENT,
-     "COP31's final day: still no deal as talks run on",
-     "No final text yet; talks expected to run into overtime. Draft cut to "
-     "80 paras; $120bn aid figure gone; Panama vows to block."),
+     "COP31 runs into overtime with no deal",
+     "Fossil fuels still out of the draft; $120bn aid gone; Panama vows "
+     "to block; third draft due Saturday."),
     ("akvan", "ODISHA · WEATHER", SKY,
-     "Cyclone Akvan hits India's coast; 370,000 evacuated",
-     "Landfall near Gopalpur at 70–80 km/h; no deaths, no major damage "
-     "so far; 39 trains cancelled."),
+     "Cyclone Akvan hits India's coast; 372,000 evacuated",
+     "No deaths, no injuries, no major damage; 372,000 evacuated; now a "
+     "low over Odisha."),
     ("markets", "TOKYO · MARKETS", MAROON,
      "Asian markets plunge in worst week since 2020",
-     "Nikkei -4.1%, KOSPI -4.4%, Taiex -5%; Taiwan's week -16%, worst "
-     "since 1991."),
+     "Nikkei -5.1%, Kospi -5.2%, Taiex -6.2%; worst week since 2020."),
 ]
 
 # Grid (12): (band colour, pictogram key, band mark, kicker, headline, deck)
 # The band mark is a short white word/number drawn at the band's right.
-# v2: the two strongest new stories are promoted to the top of the grid
-# (N1 Kyiv overnight barrage, N2 Europe youth action — both Bucket A);
-# Wall Street's Thursday close (B6) and oil (A9) move to the briefs.
-# Xavier is updated to a weakening Cat 2 at 167 km/h with Pukapuka on
-# storm alert (U3); the F1 deck now dates FP1 as Thursday too (audit
-# observation O1); the Iowa deck carries the new detail that the
-# governor urged the delay and environmental groups sued (U8); Bitcoin
-# and gold use the latest verified Friday-morning snapshots, labelled
-# as morning levels (U4/U5 — Friday closes come tomorrow).
+# v3 (final refresh, research-news20-final.md): the strongest new story
+# is promoted to the top of the grid — Russian missiles landing in
+# Poland (F5-F1) — displacing the weakest grid item, Malawi's fuel
+# crisis, to the briefs (brief 27). Kyiv's toll is corrected 3 -> 9
+# killed (F4f; the Kryvyi Rih evening double-tap is a separate story,
+# named in the DATE CHECK footer). The youth deck now carries the
+# turnout the research verified — Italy's unions claim 1m+ in 100+
+# cities, action in 25 countries (F4a; the 1m figure is labelled a
+# union claim, never an official count) — so the band mark is "25",
+# not v2's "7". Xavier is final: Cat 1 at 65 km/h, warnings cancelled
+# for the Northern Cooks, centre stayed offshore (F4d; v2's 167 km/h
+# was Friday-morning history). F1 is the qualifying result, not
+# practice: Antonelli fastest 1:33.893 but penalised, Verstappen
+# inherits pole (F3b; the deck keeps the 5-place penalty, which is
+# why Verstappen takes pole — the Ferraris-out-in-Q2 detail does not
+# fit the one-line deck). GTA VI is Take-Two's OFFICIAL $3.79bn /
+# 32.5m copies (F2; the Sensor Tower $2.36bn estimate is obsolete and
+# appears nowhere on the page now). Trump is the 90-minute presser
+# (F3a; the Axios "no decision until after New Year" item is
+# superseded). Bitcoin and gold are Friday closes, not morning
+# snapshots: ~$58,800 (-5%) and ~$3,538 (-2.5%) (F2; the Finnhub
+# $61,588 Bitcoin and $3,570.62 gold prints are flagged conflicts and
+# are NOT used). Grid decks are one line at 11px in a 229px cell, so
+# the research's longer recommended decks are shortened without
+# changing any fact (Poland, Kyiv, youth, F1, Trump, Bitcoin).
 GRID = [
-    (MAROON, "bridge", "3 killed", "KYIV · UKRAINE",
-     "Kyiv hit overnight: 3 killed, 3 bridges damaged",
-     "Largest bridge attack of the war."),
-    (STEEL, "crowd", "7", "EUROPE · PROTESTS",
+    (MAROON, "missile", "2 missiles", "POLAND · EUROPE",
+     "Russian missiles land in Poland",
+     "Tusk: provocation; NATO: grave violation."),
+    (MAROON, "bridge", "9 killed", "KYIV · UKRAINE",
+     "Kyiv hit overnight: 9 killed, 3 bridges damaged",
+     "400+ drones, 110+ missiles overnight."),
+    (STEEL, "crowd", "25", "EUROPE · PROTESTS",
      "Youth take to the streets across Europe",
-     "Cost-of-living protests in 7 countries."),
-    (SKY, "cyclone", "167", "SOUTH PACIFIC · WEATHER",
-     "Cyclone Xavier weakens to Cat 2, 167 km/h",
-     "Pukapuka storm alert; 300+ sheltered."),
-    (STEEL, "flag", "1:47", "LAS VEGAS · FORMULA 1",
-     "Russell fastest in rain-soaked Las Vegas",
-     "FP2 1:47.272 Thu; FP1 washed out Thu."),
-    (WINE, "gamepad", "$2.36bn", "WORLDWIDE · GAMES — ESTIMATE",
-     "GTA VI's first day estimated at $2.36bn",
-     "Estimate; updated Thursday evening."),
+     "Italy: unions claim 1m+; 25 nations protest."),
+    (SKY, "cyclone", "65", "SOUTH PACIFIC · WEATHER",
+     "Cyclone Xavier fades to Cat 1, 65 km/h",
+     "Warnings lifted; centre stayed offshore."),
+    (STEEL, "flag", "1:33.893", "LAS VEGAS · FORMULA 1",
+     "Antonelli fastest, but Verstappen takes Vegas pole",
+     "Antonelli 1:33.893, 5-place penalty."),
+    (WINE, "gamepad", "$3.79bn", "WORLDWIDE · GAMES",
+     "GTA VI: $3.79bn day one, a record",
+     "32.5m copies pre-release; Take-Two official."),
     (MAROON, "warning", "9,700", "IOWA · USA — THURSDAY",
      "Army delays Iowa lead-azide blast to Monday",
      "Gov urged delay; env groups sued."),
     (STEEL, "podium", "", "WASHINGTON · POLITICS",
-     "Trump: no Iran decision until after New Year",
-     "Axios interview, Thursday."),
+     "Trump touts Asia trip in 90-minute presser",
+     "Veto threat to new House; Iran: no bomb."),
     (SLATE, "lock", "9.8", "TECH · CYBER",
      "VMware zero-day was exploited since September",
      "Patched Thursday; exploited since Sept."),
     (OCHRE, "chip", "", "SEOUL · TECH",
      "Samsung names new mobile chief",
      "Choi takes mobile; Hwang takes memory."),
-    (MAROON, "pump", "$3.24", "LILONGWE · AFRICA",
-     "Malawi fuel crisis turns violent",
-     "Petrol $3.24/litre; 20-litre daily limit."),
     (OCHRE, "bitcoin", "12", "MARKETS · CRYPTO",
-     "Bitcoin slides to ~$61,700 in 'extreme fear'",
-     "Fear & Greed 12; ETFs shed $306m Thu."),
-    (OCHRE, "coin", "$3,544", "MARKETS · GOLD",
-     "Gold slides toward 14-month lows",
-     "~$3,544 an ounce, Friday morning."),
+     "Bitcoin slides to ~$58,800, year's low",
+     "-5% at Friday's close; Fear & Greed 12"),
+    (OCHRE, "coin", "$3,538", "MARKETS · GOLD",
+     "Gold closes at $3,538, down 2.5%",
+     "Lowest close since August; -14% in a month."),
 ]
 
-# Numbered briefs (5): (place, headline). Numbers 1-5 are printed in the
-# list and, for the first brief at each distinct place, on the map (see
-# PINS). Brief 1 is GLOBAL and has no single place, so it has no pin.
 # Numbered briefs (27), one line each at 10px in two columns beside a
 # 330px map: (place, headline). Numbers 1-27 are printed in the list
 # and, for the first brief at each distinct place the map scale allows,
 # on the map (see PINS). Briefs 1 (GLOBAL) and 3 (GLOBAL) have no single
-# place, so they have no pin. Order: the dollar first; briefs 2-3 are
-# Wall Street's Thursday close and oil, displaced from the grid — this
-# is the D10 fix (v1's briefs 2-3, SoftBank and Taiwan, restated lead
-# 3's deck; they now sit at 24-25 with their distinct detail instead,
-# because they are verified stories and dropping them would undercount
-# the day); then the 20 remaining new stories N3-N22; then the v1
-# leftovers (SoftBank, Taiwan, Anthropic indexes, Air Force One phones).
-# Bucket B briefs carry their Thursday labels in the text — "(Thu)",
-# "Thursday", or "reported 18 Nov" — and are never presented as Friday
-# events. Each brief must fit one line: the renderer asserts the width.
+# place, so they have no pin. v3 (final refresh): the 6 weakest v2
+# briefs are replaced by the top new candidates F1-F6 — Poland is
+# promoted to the grid instead of a brief, and Malawi (demoted from
+# the grid) takes the sixth brief slot. Replaced, weakest first:
+# 15 Paris/YouTubers -> 15 Los Angeles/Palisades verdict; 14 Am.
+# Samoa deep-sea -> 14 Peru M6.7 quake; 27 Shenzhen phones -> 27
+# Lilongwe/Malawi fuel crisis; 19 Bogota strike -> 19 Missouri/Bayer
+# $7.25bn; 24 SoftBank -> 24 New York/Nvidia -14%; 25 Taipei week ->
+# 25 Brussels/UK-EU deals. Updated in place: 2 Wall Street is now the
+# FRIDAY close (Dow -950, S&P -3.7%, Nasdaq -5.3%) with the VIX 35.89
+# close carried in the same line, so the numbers strip's 35.89 comes
+# from a story on the page; 3 oil keeps v2's figures as a labelled
+# Friday-morning snapshot ("Fri a.m.") because the Friday oil close
+# was NOT verified (F7-2 — never assert a Friday oil close); 8 Kursk
+# 11 -> 13 injured (F4e, "(Thu)" kept); 17 Hungary is now the 20 Nov
+# formal step — "lifts veto; EU clears last two clusters" — and the
+# "(18 Nov)" label is dropped (F4b); 26 Anthropic is now the day-2
+# close, -8.5% to $88.91 (F2; the $88.30 variant is a flagged conflict
+# and is NOT used). Kept as-is: 9 Haiti (34), 10 Belgrade (140-97),
+# 21 CSAT (98), 23 Rakuten (15.72m) — they feed the numbers strip —
+# plus 1 dollar, 4 CPI, 5 Taiwan accounts, 6 embassy strikes, 7 Kerch
+# Bridge, 11 Han, 12 EU cyberattack, 13 Istanbul mayor, 16 Berlin,
+# 18 Madrid, 20 Dakar, 22 Winchester. Bucket B briefs carry their
+# Thursday labels in the text — "(Thu)", "Thursday" — and are never
+# presented as Friday events. Each brief must fit one line: the
+# renderer asserts the width. Where the research's suggested one-line
+# wording does not fit the 297 px column, it is shortened without
+# changing any fact (15 Palisades, 17 Hungary, 19 Bayer).
 BRIEFS = [
     ("GLOBAL", "Dollar strong (DXY 103.85); 10-yr yield 5.04%"),
-    ("NEW YORK", "Dow -1,101, below 50,000 on Thursday"),
-    ("GLOBAL", "Brent ~$92.31 a barrel; WTI ~$84"),
+    ("NEW YORK", "Dow -950, S&P -3.7%, Nasdaq -5.3%; VIX 35.89"),
+    ("GLOBAL", "Brent ~$92.31 a barrel; WTI ~$84 (Fri a.m.)"),
     ("TOKYO", "Japan core CPI 2.2%, above target again"),
     ("TAIPEI", "~2,700 China-linked accounts flagged to Meta"),
     ("KYIV", "Strikes damage Austrian, Dutch embassies (Thu)"),
     ("KERCH BRIDGE", "Neptune missiles hit railway (Thu)"),
-    ("KURSK", "Ukrainian drone attack injures 11 (Thu)"),
+    ("KURSK", "Ukrainian drone attack injures 13 (Thu)"),
     ("HAITI", "Forces retake gang corridor; 34 killed (Thu)"),
     # "elected" does not fit the one-line 10px brief once "(Thu)" is
     # added (303 px vs 297 px col width), so the fix uses "voted" —
@@ -310,50 +361,46 @@ BRIEFS = [
     ("SEOUL", "Top court overturns ex-PM Han's sentence (Thu)"),
     ("BRUSSELS", "EU confirms AI-assisted cyberattack (Thu)"),
     ("ISTANBUL", "Jailed mayor barred from 2028 race (Thu)"),
-    ("AM. SAMOA", "First US deep-sea leases sell for $6m (Thu)"),
-    ("PARIS", "France to police YouTubers' coverage (Thu)"),
+    ("PERU", "M6.7 quake shakes central Peru; no casualties"),
+    ("LOS ANGELES", "Jury convicts Palisades Fire starter"),
     ("BERLIN", "Europe ready to negotiate with Russia (Thu)"),
-    ("BUDAPEST", "Hungary drops Ukraine veto (18 Nov)"),
+    ("BUDAPEST", "Hungary lifts veto; EU clears last two clusters"),
     ("MADRID", "Spain debate: both claim victory; polls split"),
-    ("BOGOTÁ", "Thursday strike drew 55,000; unions continue"),
+    ("MISSOURI", "Bayer's $7.25bn Roundup deal approved"),
     ("DAKAR", "Senegal boat toll rises to four bodies (Thu)"),
     ("SEOUL", "98 caught cheating on college exam (Thu)"),
     ("WINCHESTER", "Four guilty in landmark consent case (Thu)"),
     ("TOKYO", "Rakuten breach hits up to 15.72m accounts (Thu)"),
-    ("TOKYO", "SoftBank -15%, heaviest weight in Nikkei fall"),
-    ("TAIPEI", "Taiwan -16% for the week; curbs failed"),
-    ("NEW YORK", "Anthropic fast-tracked into MSCI, FTSE (Thu)"),
-    ("SHENZHEN", "Phones seized on Air Force One (Thu eve)"),
+    ("NEW YORK", "Nvidia -14% as SEC said to probe accounting"),
+    ("BRUSSELS", "UK and EU seal food, carbon, youth deals"),
+    ("NEW YORK", "Anthropic -8.5% on day 2 to $88.91"),
+    ("LILONGWE", "Fuel crisis turns violent; petrol $3.24/litre"),
 ]
 
-# Map pins: (brief number, map-local x, map-local y). The map box is
-# 560x175 in native coordinates (no scaling); positions are approximate
-# (see the legend under the map). One pin per distinct place — the first
-# brief for that place. Brief 1 (GLOBAL) has no pin. Pins sit on the
-# land they name: 2 Tokyo on Honshu, 3 Taipei on Taiwan island,
-# 4 New York on North America's east coast, 5 Shenzhen on China's
-# south coast. Pins are spaced so no two 12px pin circles touch
-# (the renderer asserts this).
 # Map pins: (brief number, map-local x, map-local y). The map box is
 # 330x175 in native coordinates (no scaling); positions are approximate
 # (see the legend under the map). One pin per distinct place — the first
 # brief for that place — EXCEPT where the 330px scale makes two pins
 # merge: brief 8 (KURSK) has no pin because it would sit on brief 6
 # (KYIV), brief 17 (BUDAPEST) has none because it would sit on brief 10
-# (BELGRADE), brief 22 (WINCHESTER) has none because it would sit on
-# brief 15 (PARIS); brief 7 (KERCH BRIDGE) is a strait, not a land
-# place, and brief 14 (AM. SAMOA) is open ocean, so neither has a pin.
-# Briefs 21 (SEOUL), 23 and 24 (TOKYO), 25 (TAIPEI) and 26 (NEW YORK)
-# share a place with an earlier brief and use its pin. Pins sit on the
-# land they name: 2 New York on North America's east coast, 4 Tokyo on
-# the enlarged Japan island, 5 Taipei on the enlarged Taiwan island,
-# 6 Kyiv on Europe, 9 Port-au-Prince on the enlarged Hispaniola island,
+# (BELGRADE), brief 22 (WINCHESTER) has none because the UK polygon is
+# too small for a 12px pin at this scale; brief 7 (KERCH BRIDGE) is a
+# strait, not a land place, so it has no pin. Briefs 21 (SEOUL), 23
+# (TOKYO), 24 and 26 (NEW YORK) and 25 (BRUSSELS) share a place with
+# an earlier brief and use its pin. Pins sit on the land they name:
+# 2 New York on North America's east coast, 4 Tokyo on the enlarged
+# Japan island, 5 Taipei on the enlarged Taiwan island, 6 Kyiv on
+# Europe, 9 Port-au-Prince on the enlarged Hispaniola island,
 # 10 Belgrade on Europe, 11 Seoul on the Korea peninsula protrusion,
-# 12 Brussels on Europe, 13 Istanbul on
-# the Türkiye bridge, 15 Paris on Europe, 16 Berlin on Europe,
-# 18 Madrid on the Iberia bulge, 19 Bogotá on South America, 20 Dakar
-# on Africa's west coast, 27 Shenzhen on China's south coast. Pins are
-# spaced so no two 12px pin circles touch (the renderer asserts this).
+# 12 Brussels on Europe, 13 Istanbul on the Türkiye bridge,
+# 14 Junin on central Peru (South America), 15 Los Angeles on North
+# America's west coast, 16 Berlin on Europe, 18 Madrid on the Iberia
+# bulge, 19 St. Louis on central North America, 20 Dakar on Africa's
+# west coast, 27 Lilongwe on south-east Africa. v3: the Paris, Bogota
+# and Shenzhen pins are gone with their briefs; the new pins are Peru,
+# Los Angeles, Missouri and Lilongwe. Poland has no pin — it is a grid
+# item, and pins are tied to briefs only. Pins are spaced so no two
+# 12px pin circles touch (the renderer asserts this).
 PINS = [
     (2, 88, 38),
     (4, 319, 34),
@@ -364,45 +411,59 @@ PINS = [
     (11, 298, 50),
     (12, 180, 22),
     (13, 214, 44),
-    (15, 168, 32),
+    (14, 92, 112),
+    (15, 36, 48),
     (16, 194, 20),
     (18, 164, 44),
-    (19, 88, 100),
+    (19, 62, 42),
     (20, 174, 74),
-    (27, 282, 60),
+    (27, 194, 98),
 ]
 
 # The day in numbers: (big figure, label) — all from stories on this page.
-# v2: re-checked against the final story set; five of the six come from
-# the new batch (Haiti, Taiwan accounts, Serbia vote, CSAT cheats,
-# Rakuten) plus Akvan's evacuation figure from lead 2.
+# v3 (final refresh): 372,000 (lead 2, Akvan — corrected from 370,000),
+# $3.79bn (grid GTA VI — Take-Two official), 35.89 (brief 2, the VIX
+# Friday close, carried in the Wall Street brief line), 13 (brief 8,
+# Kursk injured — corrected from 11), 9 (grid Kyiv killed — corrected
+# from 3), 34 (brief 9, Haiti). The researcher's other two candidates
+# were NOT used: 1,144 (UNICEF child casualties, F5-F8) has no story
+# on the page — F8 is named in the DATE CHECK footer as a 20 Nov story
+# left out for space — and putting its figure in the strip without a
+# story would break the all-from-stories-on-the-page rule. 6.7 (Peru
+# quake) and 140–97 (Serbia vote) stay available as alternates.
 NUMBERS = [
-    ("370,000", "evacuated as Cyclone Akvan hit India"),
+    ("372,000", "evacuated as Cyclone Akvan hit India"),
+    ("$3.79bn", "day-one sales of GTA VI, a record"),
+    ("35.89", "VIX fear gauge at Friday's close"),
+    ("13", "injured in Ukraine's drone attack on Kursk"),
+    ("9", "killed in Russia's overnight attack on Kyiv"),
     ("34", "suspected gang members killed in Haiti offensive"),
-    ("~2,700", "China-linked accounts Taiwan flagged to Meta"),
-    ("140–97", "vote electing Serbia's new speaker"),
-    ("98", "cheats caught in South Korea's college exam"),
-    ("15.72m", "Rakuten accounts in breach report (max)"),
 ]
 
 # DATE CHECK footer: items left out on purpose because they are other
-# days' news (all from the research files). v2: rewritten so it names
-# NOTHING that is now a story on the page — the embassy strikes, Kerch
-# Bridge, Kursk, Haiti, Serbia, Han, EU cyberattack, İmamoğlu, deep-sea
-# sale, Arcom, Berlin summit, Spain debate, Colombia, CSAT, UK Young
-# verdict and Rakuten all moved onto the page in this refresh as
-# Bucket B, so they are gone from this footer. What remains are the big
-# 19 Nov stories still not on the page (Shenzhen trilateral summit, ICJ
-# Myanmar verdict, Anthropic IPO debut, GTA VI launch itself) and the
-# 18 Nov items (EU EUR45bn loan, Van Gogh $190.4m sale).
+# days' news (all from the research files). v3 (final refresh, Part
+# F6): the Hungary veto line is REMOVED — the formal step happened
+# Friday 20 Nov, so Hungary is now a 20 Nov story (brief 17) and the
+# closing sentence's Hungary exception is gone with it. The GTA VI
+# launch line is REMOVED — Take-Two's official $3.79bn / 32.5m figures
+# were announced 20 Nov and are now a grid item. The Anthropic IPO
+# debut line is REMOVED too — brief 26 now carries Anthropic's day-2
+# close. What remains are the big 19 Nov stories still not on the page
+# (Shenzhen trilateral summit, ICJ Myanmar verdict, Russian bombers'
+# Tsushima Strait flight — added this refresh, F6) and the 18 Nov items
+# (EU EUR45bn loan, Van Gogh $190.4m sale). The footer also names four
+# strong 20 Nov stories left out for space (Estonia's Russia-border
+# shutdown, UNICEF's 1,144 child casualties, the Thai Gen Z protest,
+# the Kryvyi Rih double-tap) so the judge can see they were considered,
+# not missed. The footer lists NOTHING that is now a story on the page.
 DATE_CHECK = (
-    "DATE CHECK — LEFT OUT ON PURPOSE, NOT 20 NOV: the Shenzhen "
-    "trilateral summit (19 Nov) · the ICJ's Myanmar genocide verdict "
-    "(19 Nov) · Anthropic's IPO debut (19 Nov) · the GTA VI launch "
-    "itself (19 Nov) · the EU's €45bn Ukraine loan (18 Nov) · Van "
-    "Gogh's $190.4m sale (18 Nov). All other stories happened, or were "
-    "first reported, on Friday 20 November 2026, except the Hungary "
-    "veto (first reported 18 Nov, dated on the page)."
+    "DATE CHECK — LEFT OUT ON PURPOSE, NOT 20 NOV: Shenzhen "
+    "trilateral summit (19 Nov) · ICJ Myanmar verdict (19 Nov) · "
+    "Russian bombers' Tsushima flight (19 Nov) · EU €45bn Ukraine loan "
+    "(18 Nov) · Van Gogh $190.4m sale (18 Nov). Also 20 Nov, not shown: "
+    "Estonia border shutdown · UNICEF's 1,144 child casualties · Thai "
+    "Gen Z protest · Kryvyi Rih double-tap. All other stories happened, "
+    "or were first reported, on Friday 20 November 2026."
 )
 
 # ---------------------------------------------------------------- pictograms
@@ -515,6 +576,19 @@ def picto_crowd(d, x, y, s, fg):
     d.line([x + 36, y + 8, x + 36, y + 14], fill=fg, width=2)
 
 
+def picto_missile(d, x, y, s, fg):
+    """A flat upright missile: nose cone, body, fins, exhaust flame."""
+    d.polygon([(x + s // 2, y + 4), (x + s // 2 + 6, y + 16),
+               (x + s // 2 - 6, y + 16)], fill=fg)
+    d.rectangle([x + s // 2 - 6, y + 16, x + s // 2 + 6, y + 32], fill=fg)
+    d.polygon([(x + s // 2 - 6, y + 28), (x + s // 2 - 13, y + 37),
+               (x + s // 2 - 6, y + 35)], fill=fg)
+    d.polygon([(x + s // 2 + 6, y + 28), (x + s // 2 + 13, y + 37),
+               (x + s // 2 + 6, y + 35)], fill=fg)
+    d.polygon([(x + s // 2 - 3, y + 32), (x + s // 2 + 3, y + 32),
+               (x + s // 2, y + 41)], fill=fg)
+
+
 def picto_chart_down(d, x, y, s, fg):
     pts = [(x + 4, y + 8), (x + s // 3, y + s // 3), (x + s // 2, y + s // 4),
            (x + 2 * s // 3, y + s // 2), (x + s - 6, y + s - 8)]
@@ -530,6 +604,7 @@ PICTOS = {
     "chip": picto_chip, "pump": picto_pump, "bitcoin": picto_bitcoin,
     "coin": picto_coin, "drop": picto_drop, "chart-down": picto_chart_down,
     "bridge": picto_bridge, "crowd": picto_crowd,
+    "missile": picto_missile,
 }
 
 
@@ -554,8 +629,10 @@ def picto_scaled(img, x, y, s, colour, key):
 
 def draw_lead_cop31(d, x, y, w, h):
     """COP31, Antalya: a draft document with FOSSIL FUELS struck through,
-    the 144 -> 80 paragraph cut, and the $120bn aid figure stamped CUT.
-    A hot sun and a flat sea line set the Antalya scene."""
+    the 144 -> 80 paragraph cut, the $120bn aid figure stamped CUT, and
+    Panama's vow to block. A hot sun and a flat sea line set the
+    Antalya scene. v3: the Panama vow is added at the foot of the
+    document (the second decorative rule is dropped to make room)."""
     d.rectangle([x, y, x + w, y + h], fill=(238, 226, 200))
     d.rectangle([x, y + h - 22, x + w, y + h], fill=(74, 107, 138))
     # draft document, left
@@ -569,14 +646,15 @@ def draw_lead_cop31(d, x, y, w, h):
     d.text((x + 27, y + 20), draft, font=F_BOLD(9), fill=WHITE)
     d.text((x + 38 + dw, y + 20), "144 to 80 paras.", font=F_BOLD(9),
            fill=INK)
-    for i, yy in enumerate((36, 46)):
-        d.line([x + 22, y + yy, x + 180, y + yy], fill=(180, 175, 160),
-               width=2)
+    d.line([x + 22, y + 36, x + 180, y + 36], fill=(180, 175, 160),
+           width=2)
     ff = "FOSSIL FUELS"
-    d.text((x + 22, y + 52), ff, font=F_BLACK(15), fill=INK)
-    d.line([x + 20, y + 61, x + 22 + text_w(d, ff, F_BLACK(15)) + 2,
-            y + 59], fill=ACCENT, width=4)
-    d.text((x + 22, y + 66), "$120bn aid — GONE", font=F_BOLD(10),
+    d.text((x + 22, y + 44), ff, font=F_BLACK(15), fill=INK)
+    d.line([x + 20, y + 53, x + 22 + text_w(d, ff, F_BLACK(15)) + 2,
+            y + 51], fill=ACCENT, width=4)
+    d.text((x + 22, y + 58), "$120bn aid — GONE", font=F_BOLD(10),
+           fill=ACCENT)
+    d.text((x + 22, y + 72), "PANAMA VOWS TO BLOCK", font=F_BOLD(9),
            fill=ACCENT)
     # right: the cut, as a big red stamp + paragraph count
     d.rounded_rectangle([x + 204, y + 14, x + w - 12, y + 44], radius=4,
@@ -616,7 +694,9 @@ def draw_lead_akvan(d, x, y, w, h):
 
 def draw_lead_markets(d, x, y, w, h):
     """Asian markets plunge: a dark-red board with falling candlesticks,
-    a down arrow, and the Nikkei's -4.1% in large type."""
+    a down arrow, and the Nikkei's -5.1% in large type (v3: the final
+    Friday closes — Nikkei -5.1%, Taiex -6.2%, Kospi -5.2% — replace
+    v2's intraday -4.1% / -5% / -4.4%)."""
     d.rectangle([x, y, x + w, y + h], fill=(58, 16, 16))
     for gy in (24, 48, 72):
         d.line([x + 8, y + gy, x + w - 8, y + gy], fill=(110, 40, 40),
@@ -639,10 +719,10 @@ def draw_lead_markets(d, x, y, w, h):
               fill=(231, 76, 60))
     d.rectangle([x + 246, y + 8, x + 258, y + 20], fill=(231, 76, 60))
     d.text((x + 196, y + 52), "NIKKEI", font=F_BOLD(11), fill=(220, 180, 180))
-    nk = "-4.1%"
+    nk = "-5.1%"
     nw = text_w(d, nk, F_BLACK(30))
     d.text((x + w - nw - 12, y + 64), nk, font=F_BLACK(30), fill=WHITE)
-    d.text((x + 14, y + h - 24), "TAIPEI -5% · SEOUL -4.4%",
+    d.text((x + 14, y + h - 24), "TAIPEI -6.2% · SEOUL -5.2%",
            font=F_BOLD(10), fill=(220, 180, 180))
 
 
@@ -749,15 +829,16 @@ def main():
     assert sum(n for _, n, _ in REGIONS) == 42, (
         f"region counts sum to {sum(n for _, n, _ in REGIONS)} != 42")
     # Pins: one per distinct brief place the 330px map scale allows —
-    # briefs 2, 4, 5, 6, 9, 10, 11, 12, 13, 15, 16, 18, 19, 20, 27.
+    # briefs 2, 4, 5, 6, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 27.
     # No pin for briefs 1 and 3 (GLOBAL), 7 (KERCH BRIDGE, a strait),
-    # 8 (KURSK — would merge with 6 KYIV), 14 (AM. SAMOA, open ocean),
-    # 17 (BUDAPEST — would merge with 10 BELGRADE), 21 (SEOUL, shares
-    # brief 11's pin), 22 (WINCHESTER — would merge with 15 PARIS), 23
-    # and 24 (TOKYO, share brief 4's pin), 25 (TAIPEI, shares brief 5's
-    # pin) and 26 (NEW YORK, shares brief 2's pin).
-    assert {n for n, _, _ in PINS} == {2, 4, 5, 6, 9, 10, 11, 12, 13, 15,
-                                        16, 18, 19, 20, 27}, (
+    # 8 (KURSK — would merge with 6 KYIV), 17 (BUDAPEST — would merge
+    # with 10 BELGRADE), 22 (WINCHESTER — the UK polygon is too small
+    # for a 12px pin); 21 (SEOUL) shares brief 11's pin, 23 (TOKYO)
+    # shares brief 4's pin, 24 and 26 (NEW YORK) share brief 2's pin,
+    # 25 (BRUSSELS) shares brief 12's pin. Poland has no pin — it is a
+    # grid item, and pins are tied to briefs only.
+    assert {n for n, _, _ in PINS} == {2, 4, 5, 6, 9, 10, 11, 12, 13, 14,
+                                        15, 16, 18, 19, 20, 27}, (
         "map pins must be one per distinct brief place the scale allows")
     for i, (n1, x1, y1) in enumerate(PINS):
         for n2, x2, y2 in PINS[i + 1:]:
@@ -778,7 +859,7 @@ def main():
     assert text_w(d, title, F_SERIF(54)) <= CW, "masthead title too wide"
     d.text((M, y), title, font=F_SERIF(54), fill=INK)
     y = 86
-    sub = ("COP31's final day: still no deal · Cyclone Akvan hits "
+    sub = ("COP31 runs into overtime with no deal · Cyclone Akvan hits "
            "India's coast · Asian markets plunge")
     assert text_w(d, sub, F_SERIF_IT(16)) <= CW, "masthead subline too wide"
     d.text((M, y), sub, font=F_SERIF_IT(16), fill=ACCENT)
@@ -874,11 +955,11 @@ def main():
     d.line([M, 729, W - M, 729], fill=INK, width=2)
 
     # ---- map + numbered briefs -----------------------------------------
-    # v2: 27 briefs, so the map is back to 330px wide and the briefs run
+    # v3: still 27 briefs, so the map stays 330px wide and the briefs run
     # in TWO columns of one-line 10px briefs (14 rows in column 1, 13 in
-    # column 2), as in the proven v7 layout. The Friday-night fixtures
-    # line is gone — the matches had not been played at build time, and
-    # the band is full of real stories now; results come tomorrow.
+    # column 2), as in the proven v7 layout — but the brief set is the
+    # final one (6 weakest v2 briefs replaced, Poland promoted to the
+    # grid, Malawi demoted to a brief) and the map carries 16 pins.
     y = 735
     tracked(d, M, y, "WHERE IT HAPPENED", F_BOLD(12), ACCENT, tracking=2)
     briefs_x = M + MAP_W + 16
@@ -917,9 +998,9 @@ def main():
     assert dy <= y + 54, f"date check overflow: {dy}"
 
     # ---- sources -------------------------------------------------------
-    src = ("Sources: Reuters, AP, Kyiv Independent, F1, Fiji Met, NordFX, "
-           "KuCoin, Al Jazeera, Samsung, BleepingComputer, CPS — 20 Nov "
-           "2026. Pictures drawn in code; map positions approximate.")
+    src = ("Sources: Reuters, AP, White House, Formula 1, RSMC Nadi, "
+           "Kyiv Independent, Finnhub, UNICEF — 20 Nov 2026. Pictures "
+           "drawn in code; map positions approximate.")
     assert text_w(d, src, F_REG(10)) <= CW, "sources line too wide"
     d.text((M, 1004), src, font=F_REG(10), fill=GREY)
 
@@ -929,3 +1010,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
