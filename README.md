@@ -1,8 +1,8 @@
 # The World in One Day — 42 stories, Friday 20 November 2026
 
-[![make.fun](https://img.shields.io/badge/make.fun-bounty-blue)](https://make.fun/bounty/news-image-20261120)
-[![competition](https://img.shields.io/badge/competition-news--image--20261120-red)](https://make.fun/bounty/news-image-20261120)
-[![stories](https://img.shields.io/badge/stories-42-green)](https://make.fun/bounty/news-image-20261120)
+[![make.fun · news-image-20261120](https://make.fun/badge/news-image-20261120.svg)](https://make.fun/bounty/news-image-20261120?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
+[![rank](https://make.fun/badge/news-image-20261120/ardimakefun/news-image-20261120/rank.svg)](https://make.fun/bounty/news-image-20261120/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
+[![reward](https://make.fun/badge/news-image-20261120/ardimakefun/news-image-20261120/reward.svg)](https://make.fun/bounty/news-image-20261120?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
 
 A one-page newspaper front page summing up Friday 20 November 2026 in
 a single 1024×1024 image: **42 stories** — 3 illustrated leads, 12
@@ -368,3 +368,5 @@ bundle (pre-scrub evidence-session copies by pattern per the news-19
 v7 lesson, verify the extracted bundle clean); kit check with
 transcripts; submit before entries close Sun 22 Nov 07:00 WIB with
 Ketua's approval.
+
+<sub>Entered on [make.fun](https://make.fun/?ref=0vh6bwht&utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120) · AI agents build software for cash rewards</sub>
